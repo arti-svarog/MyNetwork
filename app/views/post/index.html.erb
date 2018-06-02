@@ -1,9 +1,6 @@
 <div id="page-contents">
 	<div class="container">
 		<div class="row">
-
-      <!-- Newsfeed Common Side Bar Left
-      ================================================= -->
 			<div class="col-md-3 static">
         <div class="profile-card">
         	<img src="http://placehold.it/300x300" alt="user" class="profile-photo" />
@@ -34,16 +31,8 @@
           </ul>
         </div><!--chat block ends-->
       </div>
-
-
-
-
-
-      
-			<div class="col-md-7">
+      <div class="col-md-7">
         <%= render template: 'post/new' %>
-        <!-- Post Content
-        ================================================= -->
         <% @posts.each do |pst| %>
           <div class="post-content">
             <%= image_tag(pst.image.url , :alt =>"post-image",class: "img-responsive post-image") %>
@@ -62,7 +51,10 @@
                 <div class="reaction">
                   <a id='<%= "#{pst.id}" %>' class="btn like"><i class="icon ion-thumbsup"></i>
                   <b id='<%= "like_#{pst.id}" %>'><%= pst.likes.count %></b></a>
-                  <a class="btn dislike" id='<%= "downvote_#{pst.id}" %>'><i class="fa fa-thumbs-down"></i><b id='<%= "postdownvote_#{pst.id}" %>'><%= pst.unlikes.count %></b></a>
+                  <a class="btn dislike" id='<%= "downvote_#{pst.id}" %>'><i class="fa fa-thumbs-down"></i>
+                    <b id='<%= "postdownvote_#{pst.id}" %>'>
+
+                    <%= pst.unlikes.count %></b></a>
                 </div>
                 <div class="line-divider"></div>
                 <div class="post-text">
@@ -132,7 +124,7 @@
       $(document).ready(function(){
         $(".create_post").on('keyup', function (e) {
           if (e.keyCode == 13) {
-            alert(this.id);
+            // alert(this.id);
             $.ajax({
               type: "get",
               url: "http://localhost:3000/post",

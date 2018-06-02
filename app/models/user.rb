@@ -16,7 +16,7 @@ class User
   field :city, type: String, default: ''
   field :country, type: String, default: ''
   field :dob, type: String, default: ''
-  field :profile_pic, type: String, default: ""
+  field :image, type: String, default: ""
   ## Recoverable
   field :reset_password_token,   type: String
   field :reset_password_sent_at, type: Time
@@ -31,6 +31,6 @@ class User
   field :current_sign_in_ip, type: String
   field :last_sign_in_ip,    type: String
   
-  mount_uploader :profile_pic, AvatarUploader, mount_on: :profile_pic
+  mount_uploader :image, AvatarUploader, mount_on: :image
 
 end

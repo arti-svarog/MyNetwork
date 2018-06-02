@@ -162,3 +162,16 @@ test:
         read:
           mode: :primary
         max_pool_size: 1
+production:
+  # Configure available database clients. (required)
+  clients:
+    # Defines the default client. (required)
+    default:
+      # Defines the name of the default database that Mongoid can connect to.
+      # (required).
+      uri: mongodb://mynetwork:password123@ds031571.mlab.com:31571/mynetwork
+      # database: medhaj_development
+      # Provides the hosts the default client can connect to. Must be an array
+      # of host:port pairs. (required)
+  options:
+    raise_not_found_error: false

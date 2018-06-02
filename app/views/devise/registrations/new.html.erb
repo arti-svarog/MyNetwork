@@ -127,7 +127,8 @@
                     <div class="btn btn-default image-preview-input">
                         <span class="glyphicon glyphicon-folder-open"></span>
                         <span class="image-preview-input-title">Browse</span>
-                        <input type="file" accept="image/png, image/jpeg, image/gif" name="user[profile_pic]" multiple="true" />
+                        <!-- <input type="file" accept="image/png, image/jpeg, image/gif" name="user[image]" multiple="true" /> -->
+                        <%= f.file_field :image %>
                          <!-- rename it -->
                     </div>
                 </span>

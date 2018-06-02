@@ -8,7 +8,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       resource.city = params[:user][:city] if params[:user][:city].present?
       resource.country = params[:user][:country] if params[:user][:country].present?
       resource.dob = params[:user][:day] + "-" + params[:user][:month] + "-" + params[:user][:year] rescue Date.today
-      resource.profile_pic = params[:user][:profile_pic]
+      resource.image = params[:user][:image]
       resource.save
     end
   end
