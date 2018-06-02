@@ -2,9 +2,11 @@
 <html>
   <head>
     <title>Mera Network | The Best Social Networking Site</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-    <%= javascript_include_tag 'application'%>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%#= javascript_include_tag 'application'%>
+  <%#= stylesheet_link_tag    'application', media: 'all' %>
   <link rel="stylesheet" href="/assets/bootstrap.min.css" />
 		<link rel="stylesheet" href="/assets/style.css" />
 		<link rel="stylesheet" href="/assets/ionicons.min.css" />

@@ -13,4 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require alertify
+//= require script
 //= require_tree .
