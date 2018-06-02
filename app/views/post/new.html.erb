@@ -1,0 +1,35 @@
+<div class="create-post">
+	<div class="row">
+		<%= form_for :post ,url: post_index_url,method: :post do |f| %>
+			<div class="col-md-8 col-sm-7">
+	      <div class="form-group">
+	        <img src="http://placehold.it/300x300" alt="" class="profile-photo-md" />
+	        <%= f.text_area :content ,class: "form-control" ,placeholder: "Write what you wish",cols: "60", rows: "1"%>
+	        <!-- <textarea name="texts" id="exampleTextarea" cols="30" rows="1" class="form-control" placeholder="Write what you wish"></textarea> -->
+	      </div>
+	    </div>
+			<div class="col-md-4 col-sm-5">
+	      <div class="tools">
+	        <ul class="publishing-tools list-inline">
+	          <!-- <li><a href="#"><i class="ion-compose"></i></a></li> -->
+	          <li><label class="btn-bs-file ion-images">
+	          	<%= f.file_field :image %></label></li>
+	          <!-- <li><a href="#"><i class="ion-ios-videocam"></i></a></li> -->
+	          <!-- <li><a href="#"><i class="ion-map"></i></a></li> -->
+	        </ul>
+	        <%= f.submit 'Publish' ,class: "btn btn-primary pull-right"%>
+	        <!-- <button >Publish</button> -->
+	      </div>
+	    </div>
+	  <% end %>
+	</div>
+</div>
+
+ <!-- Scripts
+    ================================================= -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTMXfmDn0VlqWIyoOxK8997L-amWbUPiQ&callback=initMap"></script>
+    <script src="/assets/jquery-3.1.1.min.js"></script>
+    <script src="/assets/bootstrap.min.js"></script>
+    <script src="/assets/jquery.sticky-kit.min.js"></script>
+    <script src="/assets/jquery.scrollbar.min.js"></script>
+    <script src="/assets/script.js"></script>

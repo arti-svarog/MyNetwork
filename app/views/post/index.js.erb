@@ -1,0 +1,1 @@
+$('<%= "#change_data_#{@post.id}" %>').html("<%= escape_javascript(render :partial => 'post/comment', :locals => {:post => @post}) %>");
