@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   	collection do
   		get 'create_comment'
   	end
+    member do
+      delete 'delete_comment'
+    end
   end
   resources :likes ,only: [:index]
 

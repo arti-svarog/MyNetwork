@@ -2677,3 +2677,8 @@ ul.contact li i{
 .btn-bs-file{    position:relative;}.btn-bs-file input[type="file"]{    position: absolute;    top: -9999999;    filter: alpha(opacity=0);    opacity: 0;    width:0;    height:0;    outline: none;    cursor: inherit;}.publishing-tools .ion-images{font-size:16px;}
 .reaction a:hover{color:#27aae1!important;}
 .reaction a.btn.active, .reaction a.btn:active{box-shadow:none!important;}
+
+.align-delete{
+  align-self: left;
+  padding-left: 323px;
+}
