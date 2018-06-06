@@ -130,7 +130,7 @@
             // alert(this.id);
             $.ajax({
               type: "get",
-              url: "http://localhost:3000/post",
+              url: "/post",
               data:{ post_id: this.id,comment: this.value},
               dataType: "script",
               complete: function () { 
