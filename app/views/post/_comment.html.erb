@@ -1,7 +1,9 @@
 <% @post.comments.each do |comment| %>
 	<div class="post-comment">
 	    <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm" />
-	    <p><a href="timeline.html" class="profile-link"><%= comment.try(:user).try(:firstname) %> </a><i class="em em-laughing"></i> <%= comment.try(:comment) %> </p> 
+	    <p><a href="timeline.html" class="profile-link"><%= comment.try(:user).try(:firstname) %> </a>
+	    	<!-- <i class="em em-laughing"></i> -->
+	    	<%= comment.try(:comment) %> </p> 
 	    <% if (current_user == (comment.user || comment.post.user)) %>
 	    	<%= link_to "Delete" , delete_comment_post_url(comment.id),method: :delete ,class: "align-delete"%>
 	    <% end %>

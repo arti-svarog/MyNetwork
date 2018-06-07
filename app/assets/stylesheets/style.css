@@ -2682,3 +2682,6 @@ ul.contact li i{
   align-self: left;
   padding-left: 323px;
 }
+textarea#post_content{height:50px!important; overflow-y:scroll; max-height:50px;}
+
+/*-------------------- Recent search header --------------------*/.people-search{position:relative;}.search-ftr{background: #fff; border: 1px solid #e7e7e7; position: absolute; width: 100%; z-index:10; top: 30px;}.search-ftr .title-f h3{background: #f6f7f9; color: #90949c; text-transform: uppercase; font-size: 12px;margin: 0 0 5px 0; padding: 10px 5px;}.search-ftr .title-f a{color: #202020; font-size: 14px; display: block; padding: 5px; clear: both;width: 100%; text-decoration:none;}.search-ftr .title-f a i{color:#bec2c9; margin: 0 10px 0 0;}.search-ftr .title-f a:hover{background:#ecf0f7;}

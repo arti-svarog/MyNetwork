@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :friends do
+    member do
+      get 'send_request'
+    end
+  end
+  resources :profile
+
   get '/downvote' => 'likes#downvote'
   root 'home#index'
   resources :post do 
