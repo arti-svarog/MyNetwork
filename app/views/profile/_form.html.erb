@@ -1,0 +1,61 @@
+<div class="col-md-7">
+  <div class="edit-profile-container">
+    <div class="block-title">
+      <h4 class="grey"><i class="icon ion-android-checkmark-circle"></i>Edit basic information</h4>
+      <div class="line"></div>
+      <p>At vero eos et accusamus et iusto odio dignissimos ducimus</p>
+      <div class="line"></div>
+    </div>
+    <div class="edit-block">
+      <%= form_for @user ,url: profile_url(@user) ,method: :patch do |f| %>
+        <div class="row">
+          <div class="form-group col-xs-6">
+            <label for="firstname">First name</label>
+            <%= f.text_field :firstname ,class: "form-control input-group-lg"%>
+          </div>
+          <div class="form-group col-xs-6">
+            <label for="lastname" class="">Last name</label>
+            <%= f.text_field :lastname ,class: "form-control input-group-lg",placeholder: "Last name"%>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-xs-12">
+            <label for="email">My email</label>
+            <%= f.text_field :email ,class: "form-control input-group-lg",readonly: true%>
+          </div>
+        </div> 
+        <div class="row">
+          <p class="custom-label"><strong>Date of Birth</strong></p>
+          <div class="form-group col-sm-3 col-xs-6">
+            <label for="month" class="sr-only"></label>
+            <%= f.select :day, (1..31), {}, {class: "form-control"} %>
+          </div>
+          <div class="form-group col-sm-3 col-xs-6">
+            <label for="month" class="sr-only"></label>
+            <%= f.select(:month, ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'] , {}, {class: "form-control"})  %>
+          </div>
+          <div class="form-group col-sm-6 col-xs-12">
+            <label for="year" class="sr-only"></label>
+            <%= f.select(:year, (1950..(Date.today.year)), {}, {class: "form-control"}) %>
+          </div>
+        </div>
+        <div class="form-group gender">
+          <span class="custom-label"><strong>I am a: </strong></span>
+          <label class="radio-inline">
+            <%= f.radio_button :gender, 'male', :checked => true %>Male
+          </label>
+          <label class="radio-inline">
+            <%= f.radio_button :gender, 'female' %>Female
+          </label>
+        </div>     
+        <div class="row">
+          <div class="form-group col-xs-12">
+            <label for="my-info">About me</label>
+            <%= f.text_area :about_us %>
+          </div>
+        </div>
+        <%= f.submit "Save Changes" ,class: "btn btn-primary"%>
+      <% end %>
+    </div>
+  </div>
+</div>

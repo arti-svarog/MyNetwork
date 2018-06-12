@@ -1,0 +1,78 @@
+<div id="lp-register">
+  <div class="container wrapper">
+    <div class="row">
+      <div class="col-sm-5">
+        <div class="intro-texts">
+          <h1 class="text-white">Mera Network</h1>
+          <p>Friend Finder is a social network template that can be used to connect people. The template offers Landing pages, News Feed, Image/Video Feed, Chat Box, Timeline and lot more. <br /> <br />Why are you waiting for? Buy it now.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-sm-offset-1">
+        <div class="reg-form-container"> 
+          <!-- Register/Login Tabs-->
+          <div class="reg-options">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#payment" data-toggle="tab">Payment</a></li>
+            </ul><!--Tabs End-->
+          </div>
+          <!--Registration Form Contents-->
+          <div class="tab-content">
+            <div class="tab-pane active subscript" id="register">
+              <h3>Subscription Now !!!</h3>
+              <p class="text-muted">Be cool and join today. Meet millions</p>
+              <!--Register Form-->
+              <%= form_for :payements ,url: payements_path ,method: :post do |f| %>
+                <div class="row">
+                  <div class="form-group col-xs-6">
+                    <label for="firstname" class="sr-only">First Name</label>
+                    <%= f.text_field :firstname ,class: "form-control input-group-lg",value: "#{current_user.try(:firstname)}" ,readonly: true %>
+                  </div>
+                  <div class="form-group col-xs-6">
+                    <label for="lastname" class="sr-only">Last Name</label>
+                    <%= f.text_field :lastname ,class: "form-control input-group-lg",value: "#{current_user.try(:lastname)}"  ,readonly: true  %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-xs-12">
+                    <label for="email" class="sr-only">Email</label>
+                    <%= f.text_field :email ,class: "form-control input-group-lg",value: "#{current_user.try(:email)}"   ,readonly: true  %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-xs-12">
+                    <label  class="sr-only">Phone Number</label>
+                    <%= f.text_field :mobile_number ,class: "form-control input-group-lg",value: "#{current_user.try(:mobile_number)} " ,readonly: true %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-xs-12">
+                    <input  class="form-control input-group-lg reg_name" type="text"  value="1000" readonly="true" />
+                    <p style="font-size:12px; text-align:center;">You will be pay only Rs 1000 Subscription</p>
+                  </div>
+                </div>                
+              <% end %>
+              <!--Register Now Form Ends-->
+              <div class="row">
+                <div class="form-group col-xs-12 text-center">
+                 <!-- <button class="btn btn-primary">Pay Now</button> -->
+                 <% payment_form_for_payu 'gtKFFx', 'eCwWELxi',
+                  :txnid => "#{current_user.id}",
+                  :amount => 1000,
+                  :productinfo => 'UserRegistration',
+                  :firstname => "#{current_user.try(:firstname) }",
+                  :email => '09artirajora@gmail.com',
+                  :phone => '9891155986',
+                  :surl => 'http://localhost:3000/payu_callback',
+                  :furl => 'http://localhost:3000/payu_callback',
+                  :service_provide => 'payu_paisa',
+                  :html => { :id => 'payment-form' } %>
+                </div>
+              </div>
+            </div><!--Registration Form Contents Ends-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

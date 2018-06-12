@@ -13,5 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require alertify
+//= require profile
 //= require script
 //= require_tree .
+
+
+$(document).ready(function(){
+	let url = new URLSearchParams(window.location.search);
+	var id = url.get('info');
+	$("#"+id).parent().addClass('active');
+	$("#"+id).parent().siblings().removeClass('active');            
+	$('.edit-menu a').click(function(){
+		window.location = "?type=about&info="+this.id;
+	});
+});

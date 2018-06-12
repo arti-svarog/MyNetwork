@@ -1,0 +1,34 @@
+<div class="row">
+  <%= render template: "profile/profile_header"%>
+  <div class="col-md-7">
+    <div class="edit-profile-container">
+      <div class="block-title">
+        <h4 class="grey"><i class="icon ion-ios-heart-outline"></i>My Interests</h4>
+        <div class="line"></div>
+        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate</p>
+        <div class="line"></div>
+      </div>
+      <div class="edit-block">
+        <ul class="list-inline interests">
+          <% @user.interests.each do |interest| %>
+          <li><a href=""><%= interest.hobby.camelize %></a></li>
+          <% end %>
+        </ul>
+        <div class="line"></div>
+          <%= form_for :interest, url: profile_url(@user), method: :patch do |f| %>
+            <div class="row">
+            <p class="custom-label"><strong>Add interests</strong></p>
+            <div class="form-group col-sm-8">
+              <%= f.text_field :hobby ,class: "form-control input-group-lg"%>
+            </div>
+            <input type="hidden" name="user[page]" value="interests" />
+            <div class="form-group col-sm-4">
+              <%= f.submit 'Add' ,class: "btn btn-primary" %>
+            </div>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+  <%= render template: "profile/profile_header"%>
+</div>

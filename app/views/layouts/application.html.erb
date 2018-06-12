@@ -23,6 +23,8 @@
   <body>
   	<%= render 'home/common/header' %>
     <%= yield %>
-    <%= render 'home/common/footer' %>
+    <% if !(params[:controller] == "payements")%>
+     <%= render 'home/common/footer' %>
+    <% end %>
   </body>
 </html>

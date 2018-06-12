@@ -2,9 +2,18 @@ Rails.application.routes.draw do
   resources :friends do
     member do
       get 'send_request'
+      get 'cancel_request'
     end
   end
-  resources :profile
+  resources :profile do 
+    collection do 
+      get 'payment'
+    end
+  end
+
+  resources :payements
+
+  post '/payu_callback'=>'payements#payu_return'
 
   get '/downvote' => 'likes#downvote'
   root 'home#index'
