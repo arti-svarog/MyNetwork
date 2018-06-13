@@ -55,7 +55,7 @@
               <div class="row">
                 <div class="form-group col-xs-12 text-center">
                  <!-- <button class="btn btn-primary">Pay Now</button> -->
-                 <% payment_form_for_payu 'IftBhQ3w', '572DAcDy6g',
+                 <% payment_form_for_payu '4JBWmWpK','Yok72qeGpc',
                   :txnid => "#{current_user.id}",
                   :amount => 1000,
                   :productinfo => 'UserRegistration',
@@ -64,7 +64,7 @@
                   :phone => '9891155986',
                   :surl => '/payu_callback',
                   :furl => '/payu_callback',
-                  :service_provide => 'payu_paisa',
+                  :service_provider => 'payu_paisa',
                   :html => { :id => 'payment-form' } %>
                 </div>
               </div>
