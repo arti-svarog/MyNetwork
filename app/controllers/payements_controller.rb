@@ -34,7 +34,7 @@ class PayementsController < ApplicationController
   end
 
   def payu_return
-    notification = PayuIndia::Notification.new(request.query_string, options = {:key => '4JBWmWpK', :salt => 'Yok72qeGpc', :params => params})
+    notification = PayuIndia::Notification.new(request.query_string, options = {:key => 'IftBhQ3w', :salt => '572DAcDy6g', :params => params})
     @user = User.find(notification.invoice) # notification.invoice is order id/cart id which you have submited from payment direction page.
     if notification.acknowledge      
       begin
