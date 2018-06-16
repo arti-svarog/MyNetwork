@@ -67,6 +67,55 @@
             </li>
             <% if !(params[:controller] == "payements")%>
             <li class="dropdown"><a href='/profile/<%= current_user.id %>'>Profile</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="ion-person-stalker"></i> <span><img src="/assets/down-arrow.png" alt="" /></span></a>
+                <ul class="dropdown-menu newsfeed-home frienduser-menu">
+                  <li class="first-setting">
+                        <div class="titlefrind-set">
+                            <div class="request-friends">
+                                <a href="#">Friend Requests</a></div>
+                            <div class="findsetting-grp">
+                                <a href="#">Find Friends</a>
+                                <a href="#" class="last">Setting</a>
+                            </div>
+                        </div>             
+                  </li>
+                  <li>
+                    <div class="friends-all">
+                        <div class="left-friends">
+                            <span class="img-frinds">
+                                <img src="/assets/rkumar.png" class="profile-photo-sm"/>
+                            </span>
+                            <span class="img-infor">
+                                <a href="#" class="name-friend">Rahul Kumar</a>
+                                <a href="#" class="mutual-friend">32 mutual friends</a>
+                            </span>
+                        </div>
+                        <div class="right-friends">
+                            <a href="#" class="confirn-btn">Confirm</a>
+                            <a href="#" class="delete-btn">Delete</a>
+                        </div>
+                    </div>
+                  </li>
+                   <li>
+                    <div class="friends-all">
+                        <div class="left-friends">
+                            <span class="img-frinds">
+                                <img src="/assets/rk.png" class="profile-photo-sm"/>
+                            </span>
+                            <span class="img-infor">
+                                <a href="#" class="name-friend">Rohan Kakkar</a>
+                                <a href="#" class="mutual-friend">9 mutual friends</a>
+                            </span>
+                        </div>
+                        <div class="right-friends">
+                            <a href="#" class="confirn-btn">Confirm</a>
+                            <a href="#" class="delete-btn">Delete</a>
+                        </div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
             <li class="dropdown"><a href="/users/sign_out" data-method="delete" >Logout</a></li>
             <% end %>
           </ul>

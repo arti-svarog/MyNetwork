@@ -57,7 +57,7 @@
                  <!-- <button class="btn btn-primary">Pay Now</button> -->
                  <% payment_form_for_payu '4JBWmWpK','Yok72qeGpc',
                   :txnid => "#{current_user.id}",
-                  :amount => 1000,
+                  :amount => 1,
                   :productinfo => 'UserRegistration',
                   :firstname => "#{current_user.try(:firstname) }",
                   :email => '09artirajora@gmail.com',

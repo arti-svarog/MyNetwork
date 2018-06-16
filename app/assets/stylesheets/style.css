@@ -2688,3 +2688,25 @@ textarea#post_content{height:50px!important; overflow-y:scroll; max-height:50px;
 /*post comment css change & on click data show in edit and delete option*/.edit-del{display:inline-block; vertical-align:top;}.edit-del .btn{background:transparent!important; border:0!important; border-radius:0!important; padding: 0 0 0 5px;}.edit-del .btn:focus, .edit-del .btn:hover{box-shadow:none; outline:none;}.edit-del ul{margin:0; padding:0;}.edit-del ul li{margin:0; padding:0; list-style:none;}.edit-del ul li i{margin:0 5px 0 0;}.edit-del i.fa-ellipsis-h{font-size:20px;}.edit-del .dropdown-menu, .post-text-ed  .dropdown-menu{right:0!important; left:auto!important;}.post-text-ed .post-comment{display:inline-block!important; vertical-align:top;}.post-text-ed .edit-del{display:inline-block; vertical-align:top;}
 
 .subscript{padding: 4em 0 0;}
+
+.frienduser-menu{min-width:350px;}
+.frienduser-menu li{display: block; float: left; width: 100%; padding: 10px 0 !important;}
+.frienduser-menu li.first-setting .request-friends{display:inline-block; vertical-align:top; padding:0 0 0 10px;}
+.frienduser-menu li.first-setting .findsetting-grp{float:right; display:block;  padding:0 10px 0 0;}
+.frienduser-menu li.first-setting .findsetting-grp a{color:#26BDF2 !important; font-weight:400!important;
+margin:0 10px 0 0;}
+.frienduser-menu li.first-setting .findsetting-grp a.last{margin:0;}
+.frienduser-menu .friends-all .left-friends{display: block; width: 220px; float: left;}
+.frienduser-menu .friends-all .right-friends{float: right; display: block; width: calc(100% - 220px);
+text-align: right; padding:0 10px 0 0;}
+.frienduser-menu .friends-all .left-friends .img-frinds{display: block; width:50px; float:left;
+padding: 0 0 0 10px;}
+.frienduser-menu .friends-all .left-friends .img-infor{display:block; float:left; width: calc(100% - 65px); margin: 0 0 0 10px;}
+.frienduser-menu .friends-all .left-friends .img-infor a{display:block;}
+.frienduser-menu .friends-all .left-friends .img-infor .name-friend{font-weight: 600;
+font-size: 15px; margin: 0 0 5px 0;}
+.frienduser-menu .friends-all .left-friends .img-infor .mutual-friend{font-weight: 400; font-size: 12px;}
+.frienduser-menu .friends-all .right-friends .confirn-btn{background: #39b54a!important; font-weight:600; padding: 5px; border-radius:1px; border:1px solid #39b54a; text-decoration:none!important; margin: 0 3px 0 0;}
+.frienduser-menu .friends-all .right-friends .confirn-btn:hover{background:#309b3f !important;}
+.frienduser-menu .friends-all .right-friends .delete-btn:hover{background: #e8ebef!important;}
+.frienduser-menu .friends-all .right-friends .delete-btn{background: #f6f7f9; font-weight:600; padding: 5px; border-radius:1px; border:1px solid #f6f7f9; color:#202020!important; text-decoration:none!important;}
