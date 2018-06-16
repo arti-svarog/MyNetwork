@@ -55,9 +55,19 @@
               <div class="row">
                 <div class="form-group col-xs-12 text-center">
                  <!-- <button class="btn btn-primary">Pay Now</button> -->
-                 <% payment_form_for_payu '4JBWmWpK','Yok72qeGpc',
+                 <%# payment_form_for_payu 'gtKFFx', 'eCwWELxi',
+      :txnid => "abhgy",
+      :amount => 12,
+      :productinfo => 'Book',
+      :firstname => 'abc',
+      :email => 'abc@example.com',
+      :phone => '1234567890',
+      :surl => 'http://localhost:3000/payu_callback',
+      :furl => 'http://localhost:3000/payu_callback',
+      :html => { :id => 'payment-form' } #%>
+      <% payment_form_for_payu '4JBWmWpK','Yok72qeGpc',
                   :txnid => "#{current_user.id}",
-                  :amount => 1,
+                  :amount => 1000,
                   :productinfo => 'UserRegistration',
                   :firstname => "#{current_user.try(:firstname) }",
                   :email => '09artirajora@gmail.com',
