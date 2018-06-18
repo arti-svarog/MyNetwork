@@ -9,7 +9,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
       resource.dob = params[:user][:day] + "-" + params[:user][:month] + "-" + params[:user][:year] rescue Date.today
       resource.payment_status = "pending"
       resource.mobile_number = params[:user][:mobile_number]
+      resource.referral_code = SecureRandom.hex(4)
       resource.save
+      if params[:user][:referral].present?
+        user = User.find_by(referral_code: params[:user][:referral]) 
+        ReferralManagement.create(user_id: user.id, referral_id: resource.id, amount: 500)
+        user.amount = user.try(:amount) + 500
+        user.save
+      end
     end
   end
 end

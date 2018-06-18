@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   get '/downvote' => 'likes#downvote'
   root 'home#index'
+  get '/referralcode/:code' => 'home#index' ,as: '/referralcode'
   resources :post do 
   	collection do
   		get 'create_comment'

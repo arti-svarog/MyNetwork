@@ -4,7 +4,11 @@
 			<div class="col-md-3 static">
         <div class="profile-card">
         	<img src="http://placehold.it/300x300" alt="user" class="profile-photo" />
-        	<h5><a href="timeline.html" class="text-white"><%= current_user.try(:firstname) %>  <%= current_user.try(:lastname) %></a></h5>
+        	<h5><a href="timeline.html" class="text-white"><%= current_user.try(:firstname) %>  <%= current_user.try(:lastname) %></a>
+          <%= "User Referral Code is: #{current_user.try(:referral_code)}" %>
+          <%= "User Refrral Link is: http://localhost:3000/referralcode/#{current_user.referral_code}" %>
+          <%= "User Balance is: #{current_user.amount}" %>
+          </h5>
         	<!-- <a href="#" class="text-white"><i class="ion ion-android-person-add"></i> 1,299 Friends</a> -->
         </div>
         <!--profile card ends-->

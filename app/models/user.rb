@@ -62,7 +62,8 @@ class User
   field :payment_status, type: String
   field :payment_at, type: String
   field :mobile_number, type: String
-  
+  field :referral_code, type: String
+  field :amount, type: Float ,default: 0.0
   mount_uploader :image, AvatarUploader, mount_on: :image
 
 end
