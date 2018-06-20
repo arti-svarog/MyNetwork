@@ -9,6 +9,7 @@ class User
   has_many :posts ,dependent: :destroy
   has_many :comments ,dependent: :destroy
   has_many :interests ,dependent: :destroy
+  has_many :wallet_transactions ,dependent: :destroy
 
   #Friendship Associations
   has_many :relationships, dependent: :destroy

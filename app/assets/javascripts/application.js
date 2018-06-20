@@ -12,15 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.validate.additional-methods 
-//= require jquery.validate
-//= require alertify
-//= require profile
 //= require script
+//= require alertify
 //= require_tree .
 
 
 $(document).ready(function(){
+	
+
 	let url = new URLSearchParams(window.location.search);
 	var id = url.get('info');
 	$("#"+id).parent().addClass('active');

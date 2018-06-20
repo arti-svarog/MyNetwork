@@ -1,49 +1,3 @@
-/*==================================================
-  Template Name: Friend Finder
-  Description: A Social Network Template
-  Author: thunder-team
-  Version: 1.4
-==================================================*/
-
-/*==================================================
-  [Table of Contents]
-  --------------------------------------------------
-  - body
-    - Typography
-    - Common classes
-    - Header
-    - Homepage
-      - Top Banner
-      - Signup Form
-      - Features
-      - App Download
-      - Image Divider
-      - Site Facts
-      - Live Feed
-    - Landing Page | Register
-    - Newsfeed 
-      - Left Sidebar
-      - Right Sidebar
-      - Create Post Box
-      - Post Contents
-      - Nearby People
-      - Friend List
-      - Chat Room
-      - Media: image and video 
-    - Timeline
-      - Timeline Sidebar
-      - Post Date
-      - About Profile
-      - Profile Album
-    - Edit Profile
-    - Contact Us
-    - Footer
-    - Media Queries
-    - Slide Animations
-    - Scroll Down Arrow
-    - Preloader
-==================================================*/
-
 html, body {
   height: 100%;
   width: 100%;
@@ -2710,3 +2664,55 @@ font-size: 15px; margin: 0 0 5px 0;}
 .frienduser-menu .friends-all .right-friends .confirn-btn:hover{background:#309b3f !important;}
 .frienduser-menu .friends-all .right-friends .delete-btn:hover{background: #e8ebef!important;}
 .frienduser-menu .friends-all .right-friends .delete-btn{background: #f6f7f9; font-weight:600; padding: 5px; border-radius:1px; border:1px solid #f6f7f9; color:#202020!important; text-decoration:none!important;}
+
+/*Reffrell code*/
+.refferl-code{background: linear-gradient(to bottom, rgba(39,170,225,.8), rgba(28,117,188,.8)); border: 1px solid #f1f2f2; border-radius: 4px; padding:10px 5px;}
+.reffrel-main .view-row.first, .reffrel-main .view-row.last{position:relative;}
+.reffrel-main .view-row input{background:#fff; border: 0; width: 100%; color: #000; height: 34px;
+padding: 5px; border: 1px solid #cecece;}
+.reffrel-main .view-row.first span, .reffrel-main .view-row.last span{background:#0F4E81; position: absolute; color: #fff; right: 0; font-size: 10px; font-weight: bold; height: 34px; line-height:25px; padding: 5px; top:0;}
+.reffrel-main .view-row{display:block; margin:0 0 10px 0;}
+.error{color:#ff0000;}
+.refferl-code h4{font-size:14px; color:#fff;}
+.myWallet .modal-content{background:transparent; box-shadow:none; border:0;}
+.myWallet .modal-content .modal-header{background:transparent; border:0; padding-right:0; padding-bottom:5px;}
+.myWallet .modal-content .modal-header .close{color:#81d8fc; opacity:99; text-shadow:none;}
+.myWallet .modal-body{background:#fff; border-radius:5px;}
+.mera-wallate{text-align:center;}
+.mera-wallate h6{font-size:1.5em; font-weight:600; border-bottom:1px solid #f1f2f2; padding: 0 0 0.5em 0;}
+.mera-wallate h5{font-size: 1.6em; font-weight:600; color:#23527c; margin:1em 0 0 0;}
+.mera-wallate .wallet-amt h6{color:#000; font-size: 1.6em; font-weight:600; border-bottom:0; margin:1em 0; padding:0;}
+.mera-wallate .wallet-amt p{color:#39b54a; font-size: 1.5em; font-weight:500;}
+.withdraw-text{width: 300px; margin: 0 auto;}
+.withdraw-text input{width: 100%; text-align: center; background: #f8f8f8; border: 1px solid #e6e6e6; height: 40px; font-size: 18px; line-height: 38px; margin: 0 0 10px 0; border-radius: 30px;}
+.withdraw-text .btn{height: 40px; line-height:30px!important;}
+.banking-txt{margin:2.5em 0;}
+.banking-txt p{margin:0;}
+
+/*-------   Upload multipal image  ---------------------*/
+input.uploadimg[type="file"] {display:block;}
+.imageThumb {max-height: 75px; border: 1px solid #204d74; margin: 10px 10px 0 0; padding: 1px;}
+.multipal-img{width:100%; display: inline-block; vertical-align: top; white-space: nowrap;
+overflow-x: scroll; padding: 0 0 3px 0;}
+.one.mera-wallate h6{font-size: 1.3em;}
+.create-post.wallets .form-group{width:100%;}
+.myWallet.mypost .modal-dialog{width:450px;}
+.create-post.wallets{width:100%; min-height:70px; padding:5px 0 0 0;}
+.post-margin{margin:10px 0;}
+.ion-images{color: #1c75bc;}
+.ion-ios-videocam{color: #9e1f63;}
+.ion-map{color: #f7941e;}
+.ion-compose{color: #ee2a7b;}
+.tools .publishing-tools li {cursor: pointer;}
+.btn-primary {
+    background: #27aae1!important;
+    padding: 7px 25px!important;
+    border: none!important;
+    font-size: 14px!important;
+    border-radius: 4px!important;
+    color: #fff!important;
+    position: relative!important;
+    font-weight: 600!important;
+    outline: none!important;
+    border-radius: 30px!important;
+}

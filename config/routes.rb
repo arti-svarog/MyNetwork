@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :wallet_transactions
   resources :friends do
     member do
       get 'send_request'
@@ -30,7 +31,7 @@ Rails.application.routes.draw do
 
   
   # devise_for :users
-  devise_for :users, :controllers => {:registrations => "users/registrations",sessions: 'users/sessions'}
+  devise_for :users, :controllers => {:passwords => "users/passwords",:registrations => "users/registrations",sessions: 'users/sessions'}
   # devise_for :users, :controllers => {:registrations => "registrations"}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

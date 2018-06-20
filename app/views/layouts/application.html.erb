@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Mera Network | The Best Social Networking Site</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <title>WELCOME | MERA NETWORK</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-    <%#= javascript_include_tag 'application'%>
-  <%#= stylesheet_link_tag    'application', media: 'all' %>
+    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTMXfmDn0VlqWIyoOxK8997L-amWbUPiQ&callback=initMap"></script> -->
+    <link rel="stylesheet" href="/assets/bootstrap.min.css" />
+    <script src="/assets/bootstrap.min.js"></script>
 
-
-  <link rel="stylesheet" href="/assets/bootstrap.min.css" />
 		<link rel="stylesheet" href="/assets/style.css" />
 		<link rel="stylesheet" href="/assets/ionicons.min.css" />
     <link rel="stylesheet" href="/assets/font-awesome.min.css" />
@@ -19,14 +18,13 @@
     <link rel="shortcut icon" type="image/png" href="/assets/fav.png"/>
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.4.4.min.js"></script>
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
-  <%= alertify_flash(wait: 20) %>
+    <%= alertify_flash(wait: 10) %>
   </head>
-
   <body>
   	<%= render 'home/common/header' %>
     <%= yield %>
-    <% if !(params[:controller] == "payements")%>
-     <%= render 'home/common/footer' %>
-    <% end %>
+    <%#kj if !(params[:controller] == "payements")%>
+     <%#= render 'home/common/footer' %>
+    <%# end %>
   </body>
 </html>

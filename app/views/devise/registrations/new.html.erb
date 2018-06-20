@@ -117,5 +117,14 @@
     <input id="referral" class="form-control input-group-lg reg_name" type="text" name="user[referral]" readonly="true" value="<%= params[:code] %>" />
     </div>
   </div>
+  
+  <div class="row">
+    <div class="form-group gender">
+      <label class="checkbox-inline">
+        <input type="checkbox" name="optradio"> Terms and Conditions
+      </label>
+    </div>
+  </div>
+
   <%= f.submit "Register Now" ,class: "btn btn-primary"%>
 <% end %>

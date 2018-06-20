@@ -4,18 +4,22 @@ class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
-  def new
-    super
-    binding.pry
-  end
+  # def new
+  #   super
+  #   binding.pry
+  # end
 
   # POST /resource/sign_in
   def create
-    super
     user = User.find_by(email: params[:user][:email])
     user.valid_password?(params[:user][:password])
-    # flash[:success] = "Welcome to the Sample App!"
-    # redirect_to post_index_url
+    flash[:success] = "Please complete your payment process."
+    if (user.payment_status != "success")
+     redirect_to payement_url(current_user)
+    else
+     sign_in user
+     redirect_to root_path
+    end
   end
 
   # DELETE /resource/sign_out

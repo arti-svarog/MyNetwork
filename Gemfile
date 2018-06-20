@@ -57,8 +57,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'mongoid'
 gem 'devise'
 gem 'pry'
-gem 'alertifyjs-rails'
-
 # gem for image uploader
 gem 'carrierwave', '~> 0.11'
 gem 'carrierwave-aws', '~> 1.0', '>= 1.0.2'
@@ -69,3 +67,5 @@ gem 'amistad'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'payuindia', :git => 'git://github.com/payu-india/payuindia.git'
 gem 'jquery-validation-rails'
+#Alert Message
+gem 'alertifyjs-rails'
