@@ -2670,7 +2670,7 @@ font-size: 15px; margin: 0 0 5px 0;}
 .reffrel-main .view-row.first, .reffrel-main .view-row.last{position:relative;}
 .reffrel-main .view-row input{background:#fff; border: 0; width: 100%; color: #000; height: 34px;
 padding: 5px; border: 1px solid #cecece;}
-.reffrel-main .view-row.first span, .reffrel-main .view-row.last span{background:#0F4E81; position: absolute; color: #fff; right: 0; font-size: 10px; font-weight: bold; height: 34px; line-height:25px; padding: 5px;}
+.reffrel-main .view-row.first span, .reffrel-main .view-row.last span{background:#0F4E81; position: absolute; color: #fff; right: 0; font-size: 10px; font-weight: bold; height: 34px; line-height:25px; padding: 5px; top: 0;}
 .reffrel-main .view-row{display:block; margin:0 0 10px 0;}
 .error{color:#ff0000;}
 .refferl-code h4{font-size:14px; color:#fff;}
@@ -2727,3 +2727,30 @@ overflow-x: scroll; padding: 0 0 3px 0; text-align: left;}
   height: 40px;
   line-height: 30px;
 }
+
+
+.profile-info .new-profile{position: relative;}
+.profile-info .caption{cursor: pointer;
+position: absolute;
+opacity: 0;
+bottom:0;
+-webkit-transition: all 0.20s ease-in-out;
+-moz-transition: all 0.20s ease-in-out;
+-o-transition: all 0.20s ease-in-out;
+-ms-transition: all 0.20s ease-in-out;
+transition: all 0.20s ease-in-out;
+}
+.profile-info .blur{
+background-color: rgba(0,0,0,0.5);
+height: 105px;
+width: 200px;
+z-index: 5;
+position: absolute;
+border-radius: 0 0 100px 100px;}
+.profile-info .caption-text{z-index: 10; color: #fff; position: absolute; width: 200px;
+    height: auto;  text-align: center;  top: 20px;  left: 0;  right: 0;}
+.profile-info:hover .caption {opacity: 1;  transform: translateY(-100px);   -webkit-transform: translateY(-100px);  -moz-transform: translateY(-100px);  -ms-transform: translateY(-100px);
+    -o-transform: translateY(-100px);}
+.fileUpload {position: relative;  overflow: hidden; margin: 10px;}
+.fileUpload input.upload {position: absolute;  top: 0;  right: 0;  margin: 0;  padding: 0;
+    font-size: 20px;  cursor: pointer;  opacity: 0;  filter: alpha(opacity=0);}

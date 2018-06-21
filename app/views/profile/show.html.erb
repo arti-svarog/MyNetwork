@@ -5,15 +5,40 @@
       <div class="timeline-nav-bar hidden-sm hidden-xs">
         <div class="row">
           <div class="col-md-3">
+
+
+
+            <!-- <div class="profile-info"> -->
+              <%# if @user.image.present? %>
+                <%#= image_tag(@user.image.url )%>
+              <%# else %>
+                <!-- <img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" /> -->
+              <%# end %>
+              <!-- <h3><%#= @user.try(:firstname) %> <%#= @user.try(:lastname) %></h3> -->
+              <!-- <p class="text-muted"><%#= @user.try(:position) %></p> -->
+            <!-- </div> -->
+
             <div class="profile-info">
-              <% if @user.image.present? %>
-                <%= image_tag(@user.image.url )%>
-              <% else %>
-                <img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" />
-              <% end %>
-              <h3><%= @user.try(:firstname) %> <%= @user.try(:lastname) %></h3>
-              <p class="text-muted"><%= @user.try(:position) %></p>
-            </div>
+                    <div class="new-profile">
+                      <img src="/assets/rkumar.png" alt="" class="img-responsive profile-photo" />
+                      <div class="caption">
+                        <div class="blur"></div>
+                            <div class="caption-text">
+                                <div class="fileUpload btn btn-primary">
+                                    <span>Upload</span>
+                                    <input type="file" class="upload" />
+                                </div>
+                            </div>
+                      </div>
+                  </div>
+                  <h3>Sarah Cruiz</h3>
+                  <p class="text-muted">Creative Director</p>
+                </div>
+
+
+
+
+
           </div>
           <div class="col-md-9">
             <ul class="list-inline profile-menu ">
