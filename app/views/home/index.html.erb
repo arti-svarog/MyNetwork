@@ -1,43 +1,45 @@
-<div id="lp-register">
-	<div class="container wrapper">
-    <div class="row">
-    	<div class="col-sm-5">
-        <div class="intro-texts">
-        	<h1 class="text-white">Mera Network</h1>
-        	<p>Mera Network is a social network that can be used to connect people. Mera Network offers Landing pages, News Feed, Image/Video Feed, Chat Box, Timeline and lot more. 
-          </p>
-          <p>
-          Why are you waiting for? Sign Up now.</p>
-        </div>
-    	</div>
-    	<div class="col-sm-6 col-sm-offset-1">
-        <div class="reg-form-container"> 
-          <!-- Register/Login Tabs-->
-          <div class="reg-options">
-            <ul class="nav nav-tabs">
-              <li class="active"><a href="#register" data-toggle="tab">Register</a></li>
-              <li><a href="#login" data-toggle="tab">Login</a></li>
-            </ul><!--Tabs End-->
+<body class='image-fix'>
+  <div id="lp-register">
+  	<div class="container wrapper">
+      <div class="row">
+      	<div class="col-sm-5">
+          <div class="intro-texts">
+          	<h1 class="text-white">Mera Network</h1>
+          	<p>Mera Network is a social network that can be used to connect people. Mera Network offers Landing pages, News Feed, Image/Video Feed, Chat Box, Timeline and lot more. 
+            </p>
+            <p>
+            Why are you waiting for? Sign Up now.</p>
           </div>
-          <!--Registration Form Contents-->
-          <div class="tab-content">
-            <div class="tab-pane active" id="register" style="position: relative;">
-              <h3>Register Now !!!</h3>
-              <p class="text-muted">Be cool and join today. Meet millions</p>
-              <!--Register Form-->
-              <%= render template: 'devise/registrations/new'%>
+      	</div>
+      	<div class="col-sm-6 col-sm-offset-1">
+          <div class="reg-form-container"> 
+            <!-- Register/Login Tabs-->
+            <div class="reg-options">
+              <ul class="nav nav-tabs">
+                <li class="active"><a href="#register" data-toggle="tab">Register</a></li>
+                <li><a href="#login" data-toggle="tab">Login</a></li>
+              </ul><!--Tabs End-->
+            </div>
+            <!--Registration Form Contents-->
+            <div class="tab-content">
+              <div class="tab-pane active" id="register" style="position: relative;">
+                <h3>Register Now !!!</h3>
+                <p class="text-muted">Be cool and join today. Meet millions</p>
+                <!--Register Form-->
+                <%= render template: 'devise/registrations/new'%>
+                
+              </div><!--Registration Form Contents Ends-->
               
-            </div><!--Registration Form Contents Ends-->
-            
-            <!--Login-->
-              <%= render template: 'devise/sessions/new'%>
-            <!-- End -->
+              <!--Login-->
+                <%= render template: 'devise/sessions/new'%>
+              <!-- End -->
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</body>
 <!--preloader-->
 <div id="spinner-wrapper">
   <div class="spinner"></div>
