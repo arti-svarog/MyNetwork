@@ -92,7 +92,7 @@
         <%= render template: 'post/new' %>
         <% @posts.each do |pst| %>
           <div class="post-content">
-            <%= image_tag(pst.image.url , :alt =>"post-image",class: "img-responsive") %>
+            <%= image_tag(pst.image.url,class: "img-responsive") %>
             <div class="post-container">
               <% if !pst.try(:user).try(:profile_pic).present? %>
                 <img src="http://placehold.it/300x300" alt="user" class="profile-photo-md pull-left" />
