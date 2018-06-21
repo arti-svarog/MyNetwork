@@ -13,11 +13,11 @@ class ProfileController < ApplicationController
 		@following = Relationship.where(reciever_id: @user.id).count
 		unless (@user.id == current_user.id)
 			@create_post = false
-			@posts = Post.all.order_by(:created_at.desc)
+			@posts = current_user.posts.order_by(:created_at.desc)
 			# @posts = @user.posts.order_by(:created_at.desc)
 		else
 			@create_post = true
-			@posts = Post.all.order_by(:created_at.desc)
+			@posts = current_user.posts.order_by(:created_at.desc)
 		end
 		# @sender_id = params[:id]
 		# @request_status = @user.invited?(current_user)

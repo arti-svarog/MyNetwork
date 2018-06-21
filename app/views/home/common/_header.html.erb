@@ -32,54 +32,10 @@
           <a class="navbar-brand" href="/"><img src="/assets/logo.png" alt="logo" /></a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right main-menu">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home <span><img src="/assets/down-arrow.png" alt="" /></span></a>
-              <ul class="dropdown-menu newsfeed-home">
-                <li><a href="index.html">Landing Page 1</a></li>
-                <li><a href="/">Landing Page 2</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Newsfeed <span><img src="/assets/down-arrow.png" alt="" /></span></a>
-              <ul class="dropdown-menu newsfeed-home">
-                <li><a href="newsfeed.html">Newsfeed</a></li>
-                <li><a href="newsfeed-people-nearby.html">Poeple Nearly</a></li>
-                <li><a href="newsfeed-friends.html">My friends</a></li>
-                <li><a href="newsfeed-messages.html">Chatroom</a></li>
-                <li><a href="newsfeed-images.html">Images</a></li>
-                <li><a href="newsfeed-videos.html">Videos</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Timeline <span><img src="/assets/down-arrow.png" alt="" /></span></a>
-              <ul class="dropdown-menu login">
-                <li><a href="timeline.html">Timeline</a></li>
-                <li><a href="timeline-about.html">Timeline About</a></li>
-                <li><a href="timeline-album.html">Timeline Album</a></li>
-                <li><a href="timeline-friends.html">Timeline Friends</a></li>
-                <li><a href="edit-profile-basic.html">Edit: Basic Info</a></li>
-                <li><a href="edit-profile-work-edu.html">Edit: Work</a></li>
-                <li><a href="edit-profile-interests.html">Edit: Interests</a></li>
-                <li><a href="edit-profile-settings.html">Account Settings</a></li>
-                <li><a href="edit-profile-password.html">Change Password</a></li>
-              </ul>
-            </li>
-            <% if !(params[:controller] == "payements")%>
-            <li class="dropdown"><a href='/profile/<%= current_user.id %>'>Profile</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="ion-person-stalker"></i> <span><img src="/assets/down-arrow.png" alt="" /></span></a>
+            <ul class="nav navbar-nav navbar-right main-menu">
+               <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="ion-person-stalker"></i> </a>
                 <ul class="dropdown-menu newsfeed-home frienduser-menu">
-                  <li class="first-setting">
-                        <div class="titlefrind-set">
-                            <div class="request-friends">
-                                <a href="#">Friend Requests</a></div>
-                            <div class="findsetting-grp">
-                                <a href="#">Find Friends</a>
-                                <a href="#" class="last">Setting</a>
-                            </div>
-                        </div>             
-                  </li>
                   <li>
                     <div class="friends-all">
                         <div class="left-friends">
@@ -116,22 +72,19 @@
                   </li>
                 </ul>
               </li>
-            <li class="dropdown"><a href="/users/sign_out" data-method="delete" >Logout</a></li>
-            
-          </ul>
-          <form class="navbar-form navbar-right hidden-sm people-search">
-              <div class="form-group">
-                <i class="icon ion-android-search"></i>
-                <input type="text" class="form-control" id="find_friend" placeholder="Search...">
-              </div>
-              <div class="search-ftr" style="display:none;">
-                <div class="title-f">
-                    <h3>Recent Searches</h3>
-                    <a id="friend_search" href="#"><i class="fa fa-search"></i> Arti </a>
-                </div>
-              </div>
-          </form>
-          <% end %>
+             
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="img-user"><img src="/assets/rkumar.png"/></span> Sujit<span style="margin:0 0 0 3px;"> <img src="/assets/down-arrow.png" alt="" /></span></a>
+                <ul class="dropdown-menu users-login">
+                  <li><a href="/profile/<%= current_user.id %>"><i class="ion-android-person dark-blue"></i> My Profile</a></li>
+                  <li><a href="#"><i class="ion-compose pink-color"></i> Edit</a></li>
+                  <li><a href="#"><i class="ion-mouse orange-color"></i> Setting</a></li>
+                  <li><a href="#"><i class="ion-gear-b light-green"></i> Support</a></li>
+                  <li><a href="#"><i class="ion-unlocked red-color"></i> Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+            <%= render template: "/home/common/search"%>
         </div>
       </div>
     </nav>

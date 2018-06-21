@@ -1,6 +1,6 @@
 <div class="create-post">
 	<div class="row">
-		<%= form_for :post ,url: post_index_url,method: :post do |f| %>
+		<%= form_for :post ,url: post_index_url,:html => { :multipart => true },method: :post do |f| %>
 			<div class="col-md-8 col-sm-7">
 	      <div class="form-group">
 	        <img src="http://placehold.it/300x300" alt="" class="profile-photo-md" />
@@ -11,41 +11,47 @@
 			<div class="col-md-4 col-sm-5">
 	      <div class="tools">
 	        <ul class="publishing-tools list-inline">
-	          <!-- <li><a href="#"><i class="ion-compose"></i></a></li> -->
-	          <li><label class="btn-bs-file ion-images" data-toggle="modal" data-target="#myImage"></label></li>
-	          <!--  Multipal image model open-->
-                <div id="myImage" class="modal myWallet mypost" role="dialog">
-                  <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">
-                            <i class="ion-close-round"></i>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <div class="mera-wallate one">
-                            <h6>MERA NETWORK UPLOAD PHOTO</h6>
-                            <div class="create-post wallets">
-                                <div class="form-group">
-                                    <img src="http://placehold.it/300x300" alt="" class="profile-photo-md">
-                                    <textarea name="texts" id="exampleTextarea" cols="30" rows="1" class="form-control" placeholder="Write what you wish"></textarea>
-                                  </div>
-                            </div>
-                            <div class="upload-img-all">
-                                <input type="file" class="uploadimg" id="files" name="files[]" multiple />
-                                <div class="multipal-img"></div>
-                            </div>
-                            <div class="post-margin">
-                                <button class="btn btn-primary">Post</button>
-                            </div>
+	         <li><label class="btn-bs-file ion-images" data-toggle="modal" data-target="#myImage"></label></li>
+             <li><a href="#"><i class="ion-ios-videocam"></i></a></li>
+            <!--  Multipal image model open-->
+            <div id="myImage" class="modal myWallet mypost" role="dialog">
+              <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <i class="ion-close-round"></i>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="mera-wallate one">
+                        <h6>MERA NETWORK UPLOAD PHOTO</h6>
+                        <div class="create-post wallets">
+                            <div class="form-group">
+                                <img src="http://placehold.it/300x300" alt="" class="profile-photo-md">
+                                <textarea name="texts" id="exampleTextarea" cols="30" rows="1" class="form-control" placeholder="Write what you wish"></textarea>
+                              </div>
                         </div>
-                   
-                      </div>
+                        <div class="upload-img-all">
+                            
+                            <%#= f.fields_for :images_attributes do |builder| %>
+
+                                <%= f.file_field :image ,class: "uploadimg" ,id: "files" ,multiple: true %>
+                              <!-- <input type="file" class="uploadimg" id="files" name="files[]" multiple /> -->
+                            <%# end %>
+                            <div class="multipal-img"></div>
+                        </div>
+                        <div class="post-margin">
+                            <button class="btn btn-primary">Post</button>
+                        </div>
                     </div>
+               
                   </div>
                 </div>
-                <!--  Multipal image model close -->
+              </div>
+            </div>
+            <!--  Multipal image model close -->
+
 
 	          <!-- <li><label class="btn-bs-file ion-images"> -->
 	          	<!-- <%#= f.file_field :image %></label></li> -->
@@ -69,12 +75,9 @@
     <script src="/assets/jquery.scrollbar.min.js"></script>
     <script src="/assets/script.js"></script>
 
-
-    <script type="text/javascript">
-    	$.noConflict();
-	</script>
 <script type="text/javascript">
-        $(document).ready(function() {         
+        $(document).ready(function() {     
+        // alert('jiii');    
          if(window.File && window.FileList && window.FileReader) {
          $("#files").on("change",function(e) {
          var files = e.target.files ,

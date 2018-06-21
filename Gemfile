@@ -69,3 +69,4 @@ gem 'payuindia', :git => 'git://github.com/payu-india/payuindia.git'
 gem 'jquery-validation-rails'
 #Alert Message
 gem 'alertifyjs-rails'
+gem "nested_form"

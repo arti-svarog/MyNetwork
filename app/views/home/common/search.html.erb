@@ -1,0 +1,39 @@
+<form class="navbar-form text-center hidden-sm people-search newpeople-search">
+  <div class="form-group">
+    <i class="icon ion-android-search"></i>
+    <input type="text" class="form-control" id="find_friend" placeholder="Search">
+  </div>
+  <div class="search-ftr" style="display:none;">
+    <div class="title-f" id="friend_search">
+      <h3>Recent Searches</h3>
+      <a href="#"><i class="fa fa-search"></i> Arti Razoira</a>
+      <a href="#"><i class="fa fa-search"></i> Yatin Razoira</a>
+      <a href="#"><i class="fa fa-search"></i> Little Razoira</a>
+    </div>
+  </div>
+</form>
+<script type="text/javascript">
+  // #Start Search Friend functionality
+    $("#find_friend").keyup(function(){
+      $(".search-ftr").show();
+      var search = this.value;
+      $.ajax({
+        type: "get",
+        url: "/friends",
+        data:{ search: search},
+        dataType: "json",
+        success:function(data){
+          {
+            var html = "";
+             $.each(data.users,function(i, value ) {
+              console.log(value);
+              // html += "<a value="+value.id+">"+value.branch_name+"</a>"
+              html += "<a href="+"/profile/"+value.id+"><i class='fa fa-search'></i>"+value.firstname+"</a>"
+            });           
+            $("#friend_search").html(html);
+          }                   
+        }
+      });
+    });
+  //End
+</script>

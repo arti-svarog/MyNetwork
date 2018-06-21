@@ -5,58 +5,53 @@
 		    <div class="col-md-3"></div>
 		    <div class="col-md-7">
 		    	<% if @create_post %>
-		        <%= render template: 'post/new' %>
-      		<% end %>
-		      <!-- Post Create Box End-->
+	        	<%= render template: 'post/new' %>
+    			<% end %>
+					<% @posts.each do |pst| %>
+		      		<div class="post-content">
+			            <%#= image_tag(pst.image.url , :alt =>"post-image",class: "img-responsive post-image") %>
+			            <div class="post-container">
+			              <% if !pst.try(:user).try(:profile_pic).present? %>
+			                <img src="http://placehold.it/300x300" alt="user" class="profile-photo-md pull-left" />
+			              <% else %>
+			                <%= pst.user.profile_pic  %>
+			              <% end %>
+			              <div class="post-detail">
+			                <div class="user-info">
+			                  <h5><a href="timeline.html" class="profile-link"><%= "#{pst.user.firstname}"%>&nbsp;&nbsp;<%= "#{pst.user.firstname}" %></a>
+			                    <!-- <span class="following">following</span></h5> -->
+			                  <p class="text-muted">Published <%= time_ago_in_words(pst.created_at) %> ago</p>
+			                </div>
+			                <div class="reaction">
+			                  <a id='<%= "#{pst.id}" %>' class="btn like"><i class="icon ion-thumbsup"></i>
+			                  <b id='<%= "like_#{pst.id}" %>'><%= pst.likes.count %></b></a>
+			                  <a class="btn dislike" id='<%= "downvote_#{pst.id}" %>'><i class="fa fa-thumbs-down"></i>
+			                    <b id='<%= "postdownvote_#{pst.id}" %>'>
 
-		      <!-- Post Content
-		      ================================================= -->
-		      <% @posts.each do |pst| %>
-          <div class="post-content">
-            <%= image_tag(pst.image.url , :alt =>"post-image",class: "img-responsive post-image") %>
-            <div class="post-container">
-              <% if !pst.try(:user).try(:profile_pic).present? %>
-                <img src="http://placehold.it/300x300" alt="user" class="profile-photo-md pull-left" />
-              <% else %>
-                <%= pst.user.profile_pic  %>
-              <% end %>
-              <div class="post-detail">
-                <div class="user-info">
-                  <h5><a href="timeline.html" class="profile-link"><%= "#{pst.user.firstname}"%>&nbsp;&nbsp;<%= "#{pst.user.firstname}" %></a>
-                    <!-- <span class="following">following</span></h5> -->
-                  <p class="text-muted">Published <%= time_ago_in_words(pst.created_at) %> ago</p>
-                </div>
-                <div class="reaction">
-                  <a id='<%= "#{pst.id}" %>' class="btn like"><i class="icon ion-thumbsup"></i>
-                  <b id='<%= "like_#{pst.id}" %>'><%= pst.likes.count %></b></a>
-                  <a class="btn dislike" id='<%= "downvote_#{pst.id}" %>'><i class="fa fa-thumbs-down"></i>
-                    <b id='<%= "postdownvote_#{pst.id}" %>'>
-
-                    <%= pst.unlikes.count %></b></a>
-                </div>
-                <% if (current_user == pst.user) %>
-                  <%= link_to "Delete" , post_url(pst.id),method: :delete %>
-                <% end %>
-                <div class="line-divider"></div>
-                <div class="post-text">
-                  <p><%= pst.try(:content) %></p>
-                </div>
-                <div class="line-divider"></div>
-                <div id = '<%= "change_data_#{pst.id}" %>' >
-                  <% @post = pst %>
-                  <%= render :partial => 'post/comment' , :locals => { :post => @post } %>
-                </div>
-                <div class="post-comment">
-                  <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm " />
-                  <input type="text" class="form-control create_post" placeholder="Post a comment" id='<%= "#{pst.id }"%>'>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
-
+			                    <%= pst.unlikes.count %></b></a>
+			                </div>
+			                <% if (current_user == pst.user) %>
+			                  <%= link_to "Delete" , post_url(pst.id),method: :delete %>
+			                <% end %>
+			                <div class="line-divider"></div>
+			                <div class="post-text">
+			                  <p><%= pst.try(:content) %></p>
+			                </div>
+			                <div class="line-divider"></div>
+			                <div id = '<%= "change_data_#{pst.id}" %>' >
+			                  <% @post = pst %>
+			                  <%= render :partial => 'post/comment' , :locals => { :post => @post } %>
+			                </div>
+			                <div class="post-comment">
+			                  <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm " />
+			                  <input type="text" class="form-control create_post" placeholder="Post a comment" id='<%= "#{pst.id }"%>'>
+			                </div>
+			              </div>
+			            </div>
+		          	</div>
+	        <% end %>
 		    </div>
-		    <div class="col-md-2 static">
+		    <!-- <div class="col-md-2 static">
 		      <div id="sticky-sidebar">
 		        <h4 class="grey">Sarah's activity</h4>
 		        <div class="feed-item">
@@ -84,7 +79,7 @@
 		          </div>
 		        </div>
 		      </div>
-		    </div>
+		    </div> -->
 		  </div>
 		</div>
 	</div>

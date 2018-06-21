@@ -36,7 +36,7 @@
             </div>
             <div class="modal-body">
             <div class="mera-wallate">
-              <h6>MERA NETWORK WALLET</h6>
+              <h4 class="grey">Mera Network Wallet</h4>
               <h5> Available Balance</h5>
               <div class="wallet-amt">
                 <h6>INR <%= current_user.try(:amount) %></h6>
@@ -92,7 +92,10 @@
         <%= render template: 'post/new' %>
         <% @posts.each do |pst| %>
           <div class="post-content">
-            <%= image_tag(pst.image.url,class: "img-responsive") %>
+            <%# pst.images.each do |img| %>
+              <%#= image_tag(img.image.url , :alt =>"post-image",class: "img-responsive post-image") %>
+            <%# end %>
+            <%= image_tag(pst.try(:images).try(:first).try(:image).try(:url) , :alt =>"post-image",class: "img-responsive post-image") %>
             <div class="post-container">
               <% if !pst.try(:user).try(:profile_pic).present? %>
                 <img src="http://placehold.it/300x300" alt="user" class="profile-photo-md pull-left" />
@@ -253,29 +256,6 @@
     });
     //End
 
-    // #Start Search Friend functionality
-      $("#find_friend").keyup(function(){
-        $(".search-ftr").show();
-       var search = this.value;
-        $.ajax({
-        type: "get",
-        url: "/friends",
-        data:{ search: search},
-        dataType: "json",
-        success:function(data){
-        {
-          var html = "";
-           $.each(data.users,function(i, value ) {
-            console.log(value);
-             // html += "<a value="+value.id+">"+value.branch_name+"</a>"
-             html += "<a href="+"/profile/"+value.id+"><i class='fa fa-search'></i>"+value.firstname+"</a>"
-           });           
-           $("#friend_search").html(html);
-        }                   
-      }
-      });
-    });
-    //End
   });
 </script>
 

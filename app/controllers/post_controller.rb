@@ -19,9 +19,14 @@ class PostController < ApplicationController
 
   
   def create
+    binding.pry
   	user = current_user
-  	user.posts.create(content: params[:post][:content],image: params[:post][:image])
-  	flash[:success] = "Post successfully..."
+  	post = user.posts.create(content: params[:post][:content])
+  	p"========#{post.inspect}====="
+    params[:post][:image].each do |img|
+      post.images.create(image: img)
+    end
+    flash[:success] = "Post successfully..."
     redirect_to post_index_url
   end
 
@@ -42,5 +47,11 @@ class PostController < ApplicationController
     flash[:success] = "Post delete successfully..."
     redirect_to post_index_url
   end
+
+  private
+  # def post_params 
+  #   # binding.pry
+  #   params.require(:post).permit(:content, images_attributes: [:id, :image, :_destroy])
+  # end
 
 end

@@ -1,4 +1,8 @@
 class Image
   include Mongoid::Document
-  embedded_in :user
+  field :image, type: String, default: ''
+  belongs_to :post
+
+  mount_uploader :image, AvatarUploader, mount_on: :image
+
 end
