@@ -16,10 +16,10 @@
             <span onclick="myFunction()">COPY</span>
             <!-- <span onclick="myFunction()">Copy</span>  -->
           </div>
-          <div class="view-row last">
+          <!-- <div class="view-row last">
             <input type="text"/>
             <span>COPY</span>
-          </div>
+          </div> -->
         </div>
       </div>
         <!--profile card ends-->
@@ -92,7 +92,7 @@
         <%= render template: 'post/new' %>
         <% @posts.each do |pst| %>
           <div class="post-content">
-            <%= image_tag(pst.image.url , :alt =>"post-image",class: "img-responsive post-image") %>
+            <%= image_tag(pst.image.url , :alt =>"post-image",class: "img-responsive") %>
             <div class="post-container">
               <% if !pst.try(:user).try(:profile_pic).present? %>
                 <img src="http://placehold.it/300x300" alt="user" class="profile-photo-md pull-left" />

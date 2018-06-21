@@ -6,12 +6,11 @@ class PostController < ApplicationController
 
   def index
     @new_post = Post.new()
-    @posts = Post.all.order_by(:created_at.desc)
+    @posts = current_user.posts.order_by(:created_at.desc)
     if params[:post_id]
       @post = Post.find(params[:post_id])
       Comment.create(post_id: @post.id, comment: params[:comment],user_id: current_user.id)
     end
-    
     respond_to do |format|
       format.html{}
       format.js{@post}
