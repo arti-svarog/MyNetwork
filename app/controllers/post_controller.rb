@@ -19,10 +19,10 @@ class PostController < ApplicationController
 
   
   def create
-    binding.pry
+    # binding.pry
   	user = current_user
   	post = user.posts.create(content: params[:post][:content])
-  	p"========#{post.inspect}====="
+  	# p"========#{post.inspect}====="
     params[:post][:image].each do |img|
       post.images.create(image: img)
     end
