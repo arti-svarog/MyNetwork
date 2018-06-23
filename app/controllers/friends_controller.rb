@@ -38,7 +38,7 @@ class FriendsController < ApplicationController
   # end
 
   def confirm_request
-    binding.pry
+    # binding.pry
     user = User.find_by(id: params[:id])
     # request = Relationship.find(params[:id])
     # request.update(status: "accepted")
