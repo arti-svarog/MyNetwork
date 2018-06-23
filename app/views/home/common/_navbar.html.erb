@@ -1,0 +1,68 @@
+<div class="col-md-3 static">
+        <div class="profile-card">
+          <img src="http://placehold.it/300x300" alt="user" class="profile-photo" />
+          <h5><a href="timeline.html" class="text-white"><%= current_user.try(:firstname) %> <%= current_user.try(:lastname) %></a>
+          </h5>
+          <a href="/friends/<%= current_user.id %>/friend_list" class="text-white"><i class="ion ion-android-person-add"></i>  <%= @current_user.friends.count %>  Friends</a>
+        </div>
+        <div class="refferl-code">
+          <h4 class="grey">Refer your friend and earn Rs 500 for each Referral <span class="error">*</span></h4>
+          <div class="reffrel-main">
+            <div class="view-row first">
+              <input type="text" value='<%= "http://www.mera.network/referralcode/#{current_user.referral_code}" %>' id="myInput" />
+              <span onclick="myFunction()">COPY</span>
+              <!-- <span onclick="myFunction()">Copy</span>  -->
+            </div>
+            <!-- <div class="view-row last">
+              <input type="text"/>
+              <span>COPY</span>
+            </div> -->
+          </div>
+        </div>
+        <!--profile card ends-->
+        <ul class="nav-news-feed">
+          <!--  Wallet model open-->
+          <div id="myWallet" class="modal myWallet" role="dialog">
+            <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">
+                <i class="ion-close-round"></i>
+              </button>
+              </div>
+              <div class="modal-body">
+              <div class="mera-wallate">
+                <h4 class="grey">Mera Network Wallet</h4>
+                <h5> Available Balance</h5>
+                <div class="wallet-amt">
+                  <h6>INR <%= current_user.try(:amount) %></h6>
+                  <p>Withdrawal Amount</p>
+                </div>
+                <div class="withdraw-text">
+                  <%= form_for :wallet ,url: wallet_transactions_url,method: :post ,html: {id: "wallet_form_id"} do |f| %>
+                    <%# if (current_user.try(:amount) > 1999) %>
+                      <!-- <input type="text" placeholder="Enter Amount" /> -->
+                    <%# else %>
+                      <%= f.text_field :amount ,placeholder: "Enter Amount" %>
+                      <!-- <input type="text" placeholder="Enter Amount" /> -->
+                    <%# end %>
+                    <%= f.submit 'WITHDRAWAL', class: "btn btn-block btn-primary" %>
+                  <% end %>
+                </div>
+                <div class="banking-txt">
+                  <p><span class="error">*</span> Minimum Withdrawal Amount INR 2000.00</p>
+                  <p><span class="error">*</span> Minimum withdrawal will be process 24 Banking Hours</p>
+                </div>
+              </div>
+            
+              </div>
+            </div>
+            </div>
+          </div>
+          <!--  Wallet model close -->
+          <li><i class="ion-ios-download ion-images"></i><div><a href="#" data-toggle="modal" data-target="#myWallet">Wallet</a></div></li>
+        <li><i class="icon ion-ios-paper"></i><div><a href="/images">Images</a></div></li>
+        <li><i class="icon ion-ios-paper"></i><div><a href="/post">My Newsfeed</a></div></li>
+        </ul>
+      </div>

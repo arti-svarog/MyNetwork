@@ -1,0 +1,28 @@
+<ul class="dropdown-menu newsfeed-home frienduser-menu">
+  <li>
+    <% pending_request = current_user.pending_invited_by %>
+    <% unless pending_request %>
+        <h1>No abvvv</h1>
+    <% else %>
+      <% pending_request.each do |user| %>
+        <li>
+          <div class="friends-all">
+            <div class="left-friends">
+              <span class="img-frinds">
+                  <img src="/assets/rkumar.png" class="profile-photo-sm"/>
+              </span>
+              <span class="img-infor">
+                  <a href="#" class="name-friend"><%= user.firstname.camelize %>  <%= user.lastname.camelize %></a>
+                  <a href="#" class="mutual-friend"><%= (current_user.common_friends_with user).count rescue 0 %> mutual friends</a>
+              </span>
+            </div>
+            <div class="right-friends">
+              <a href="/friends/<%= user.id %>/confirm_request" class="confirn-btn">Confirm</a>
+              <a href="/friends/<%= user.id %>/reject_request" class="delete-btn">Delete</a>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    <% end %>
+  </li>
+</ul>

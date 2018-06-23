@@ -10,9 +10,20 @@ class User
   has_many :comments ,dependent: :destroy
   has_many :interests ,dependent: :destroy
   has_many :wallet_transactions ,dependent: :destroy
+  has_many :images ,dependent: :destroy
 
   #Friendship Associations
-  has_many :relationships, dependent: :destroy
+  # has_many :senders, :class_name => "Relationship",:foreign_key => 'user_id'
+  # has_many :reverse_relationships, class_name: 'Relationship', foreign_key: 'reciever_id'
+  # has_many :activities, class_name: 'Activity', foreign_key: 'sender_id', dependent: :destroy
+  # has_many :senders, :class_name => "User", inverse_of: :sender
+  # has_many :recievers, :class_name => "User", inverse_of: :reciever
+  # # has_many :senders, :class_name => "Relationship",
+    # :foreign_key => 'reciever_id', inverse_of: :recievers
+  # has_many :recievers, :class_name => "Relationship",
+    # :foreign_key => 'user_id', :order => "created_at desc", :dependent => :destroy
+
+  has_many :relationships, dependent: :destroy,inverse_of: :reciever
   # has_many :followed_users, through: :relationships, source: :followed
   # has_many :reverse_relationships, foreign_key: "followed_id",
                                  # class_name:  "Relationship",

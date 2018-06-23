@@ -53,7 +53,7 @@
                 <% if (current_user.id == @user.id)%>
                   <%= link_to 'Edit Profile' ,'#' %>
                 <% else %>
-                  <% if !@request_status.present? %>
+                  <% unless (@user.invited_by? current_user) %>
                     <%= link_to "Add Friend" , send_request_friend_url(@user.id) ,class: "btn btn-primary" %>
                   <% else %>
                     <%= link_to "Cancel Request" , cancel_request_friend_url(@user.id) ,class: "btn btn-primary" %>
@@ -216,5 +216,13 @@
       });
     });
     //End
+  });
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.upload').on('submit',(function(e) {
+      alert("sss");
+    });
   });
 </script>

@@ -1,93 +1,7 @@
 <div id="page-contents">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-3 static">
-        <div class="profile-card">
-        	<img src="http://placehold.it/300x300" alt="user" class="profile-photo" />
-        	<h5><a href="timeline.html" class="text-white"><%= current_user.try(:firstname) %>  <%= current_user.try(:lastname) %></a>
-          </h5>
-        	<!-- <a href="#" class="text-white"><i class="ion ion-android-person-add"></i> 1,299 Friends</a> -->
-        </div>
-        <div class="refferl-code">
-        <h4 class="grey">Refer your friend and earn Rs 500 for each Referral <span class="error">*</span></h4>
-        <div class="reffrel-main">
-          <div class="view-row first">
-            <input type="text" value='<%= "http://www.mera.network/referralcode/#{current_user.referral_code}" %>' id="myInput" />
-            <span onclick="myFunction()">COPY</span>
-            <!-- <span onclick="myFunction()">Copy</span>  -->
-          </div>
-          <!-- <div class="view-row last">
-            <input type="text"/>
-            <span>COPY</span>
-          </div> -->
-        </div>
-      </div>
-        <!--profile card ends-->
-        <ul class="nav-news-feed">
-          <!--  Wallet model open-->
-        <div id="myWallet" class="modal myWallet" role="dialog">
-          <div class="modal-dialog">
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">
-              <i class="ion-close-round"></i>
-            </button>
-            </div>
-            <div class="modal-body">
-            <div class="mera-wallate">
-              <h4 class="grey">Mera Network Wallet</h4>
-              <h5> Available Balance</h5>
-              <div class="wallet-amt">
-                <h6>INR <%= current_user.try(:amount) %></h6>
-                <p>Withdrawal Amount</p>
-              </div>
-              <div class="withdraw-text">
-                <%= form_for :wallet ,url: wallet_transactions_url,method: :post do |f| %>
-                  <%# if (current_user.try(:amount) > 1999) %>
-                    <!-- <input type="text" placeholder="Enter Amount" /> -->
-                  <%# else %>
-                    <%= f.text_field :amount ,placeholder: "Enter Amount" %>
-                    <!-- <input type="text" placeholder="Enter Amount" /> -->
-                  <%# end %>
-                  <%= f.submit 'WITHDRAWAL', class: "btn btn-block btn-primary" %>
-                <% end %>
-              </div>
-              <div class="banking-txt">
-                <p><span class="error">*</span> Minimum Withdrawal Amount INR 2000.00</p>
-                <p><span class="error">*</span> Minimum withdrawal will be process 24 Banking Hours</p>
-              </div>
-            </div>
-          
-            </div>
-          </div>
-          </div>
-        </div>
-        <!--  Wallet model close -->
-       <li><i class="ion-ios-download ion-images"></i><div><a href="#" data-toggle="modal" data-target="#myWallet">Wallet</a></div></li>
-        <li><i class="icon ion-ios-paper"></i><div><a href="/post">My Newsfeed</a></div></li>
-          <!-- <li><i class="icon ion-ios-people"></i><div><a href="newsfeed-people-nearby.html">People Nearby</a></div></li> -->
-          <!-- <li><i class="icon ion-ios-people-outline"></i><div><a href="newsfeed-friends.html">Friends</a></div></li> -->
-          <!-- <li><i class="icon ion-chatboxes"></i><div><a href="newsfeed-messages.html">Messages</a></div></li> -->
-          <!-- <li><i class="icon ion-images"></i><div><a href="newsfeed-images.html">Images</a></div></li> -->
-          <!-- <li><i class="icon ion-ios-videocam"></i><div><a href="newsfeed-videos.html">Videos</a></div></li> -->
-        </ul><!--news-feed links ends-->
-        <!-- <div id="chat-block">
-          <div class="title">Chat online</div>
-          <ul class="online-users list-inline">
-            <li><a href="newsfeed-messages.html" title="Linda Lohan"><img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-            <li><a href="newsfeed-messages.html" title="Sophia Lee"><img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-            <li><a href="newsfeed-messages.html" title="John Doe"><img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-            <li><a href="newsfeed-messages.html" title="Alexis Clark"><img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-            <li><a href="newsfeed-messages.html" title="James Carter"><img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-            <li><a href="newsfeed-messages.html" title="Robert Cook"><img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-            <li><a href="newsfeed-messages.html" title="Richard Bell"><img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-            <li><a href="newsfeed-messages.html" title="Anna Young"><img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-            <li><a href="newsfeed-messages.html" title="Julia Cox"><img src="http://placehold.it/300x300" alt="user" class="img-responsive profile-photo" /><span class="online-dot"></span></a></li>
-          </ul>
-        </div> -->
-        <!--chat block ends-->
-      </div>
+			<%= render partial: '/home/common/navbar' %>
       <div class="col-md-7">
         <%= render template: 'post/new' %>
         <% @posts.each do |pst| %>
@@ -270,4 +184,28 @@
   /* Alert the copied text */
   alert("Copied the text: " + copyText.value);
 } 
+</script>
+
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script><script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#wallet_form_id').validate({
+      rules: {
+        
+
+    "wallet[amount]": {
+      required: true,
+      remote: "/validate_balance"
+    }
+
+
+      },
+      messages: {
+        "wallet[amount]": {required: "Please enter amount.",remote: "Balance is insufficient in your wallet."}
+      },
+      submitHandler: function(form) {
+        form.submit();
+      }
+    });
+  });
 </script>

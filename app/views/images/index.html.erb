@@ -1,0 +1,116 @@
+<body>
+  <div id="page-contents">
+    <div class="container">
+      <div class="row">
+        <%= render partial: '/home/common/navbar' %>
+        <div class="col-md-7">
+
+          <!-- Post Create Box
+          ================================================= -->
+         <!--  <div class="create-post">
+            <div class="row">
+              <div class="col-md-7 col-sm-7">
+                <div class="form-group">
+                  <img src="http://placehold.it/300x300" alt="" class="profile-photo-md" />
+                  <textarea name="texts" id="exampleTextarea" cols="30" rows="1" class="form-control" placeholder="Write what you wish"></textarea>
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5">
+                <div class="tools">
+                  <ul class="publishing-tools list-inline">
+                    <li><a href="#"><i class="ion-compose"></i></a></li>
+                    <li><a href="#"><i class="ion-images"></i></a></li>
+                    <li><a href="#"><i class="ion-ios-videocam"></i></a></li>
+                    <li><a href="#"><i class="ion-map"></i></a></li>
+                  </ul>
+                  <button class="btn btn-primary pull-right">Publish</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          ================================================= -->
+          <div class="media">
+            <div class="row js-masonry" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": ".grid-sizer", "percentPosition": true }'>
+              <div class="grid-sizer col-md-6 col-sm-6"></div>
+              <% @images.each do |img| %>
+                <div class="grid-item col-md-6 col-sm-6">
+                  <div class="media-grid">
+                    <div class="img-wrapper" data-toggle="modal" data-target=".modal-9" id="<%= img.id %>">
+                      <%= image_tag(img.try(:image).try(:url),class: "aa img-responsive post-image"  ,id: "#{img.id}" )%>
+                    </div>
+                    <div class="media-info">
+                      <div class="reaction">
+                        <a class="btn text-green"><i class="fa fa-thumbs-up"></i> 47</a>
+                        <a class="btn text-red"><i class="fa fa-thumbs-down"></i> 9</a>
+                      </div>
+                      <div class="user-info">
+                        <%= image_tag(img.try(:user).try(:image).try(:url),class: "profile-photo-sm pull-left") %>
+                        <div class="user">
+                          <h6><a href="#" class="profile-link"><%= "#{img.user.firstname.camelize}" %>  <%= "#{img.user.lastname.camelize}" %></a></h6>
+                          <a class="text-g.reen" href="#">Self</a>
+                        </div>
+                      </div>
+                    </div>
+
+
+                  </div>
+                </div>
+            <% end %>
+          <% img = @image %>
+<!--Popup-->
+<div id="the-modal" class="modal modal-9" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="post-content">
+        <img src="" id="imagepreview" alt="post-image" class= "img-responsive post-image">
+        <%= render partial: '/images/preview' %>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Popup End-->
+            </div>
+          </div>
+        </div>
+
+        <!-- Newsfeed Common Side Bar Right
+        ================================================= -->
+        <%= render partial: 'home/common/follow_friends' %>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <!-- Scripts
+  ================================================= -->
+  <script src="/assets/jquery-3.1.1.min.js"></script>
+  <script src="/assets/bootstrap.min.js"></script>
+  <script src="/assets/masonry.pkgd.min.js"></script>
+  <script src="/assets/jquery.sticky-kit.min.js"></script>
+  <script src="/assets/jquery.scrollbar.min.js"></script>
+  <script src="/assets/script.js"></script>
+  
+</body>
+<script type="text/javascript">
+ $(document).ready(function(){
+   $('.img-wrapper').click(function(){
+    var current_image = this.id;
+    var image1 = $(this).children("img").attr("src");
+    $.ajax({
+        type: "get",
+        url: "/preview_image",
+        data:{ image_id: this.id},
+        dataType: "json",
+        success:function(data){
+          {
+            console.log($('#'+current_image).attr('src'));
+           $('#imagepreview').attr('src', image1);
+           $('#the-modal').modal('show'); 
+          }
+        }
+    });
+
+   });
+ });
+</script>

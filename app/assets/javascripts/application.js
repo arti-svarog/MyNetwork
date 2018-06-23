@@ -14,7 +14,8 @@
 //= require jquery_ujs
 //= require script
 //= require alertify
-//= require jquery_nested_form
+//= require jquery.validate
+//= require jquery.validate.additional-methods
 //= require_tree .
 
 

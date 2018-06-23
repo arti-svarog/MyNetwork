@@ -11,4 +11,12 @@ class WalletTransactionsController < ApplicationController
 		redirect_to '/'
 	end
 
+	def validate_balance
+		if (current_user.amount > 2000)
+			render :json => true
+		else
+			render :json => false
+		end
+	end
+
 end

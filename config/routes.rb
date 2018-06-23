@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
+  get 'images/index'
+  get 'preview_image' => 'images#preview'
+  get 'validate_balance' => 'wallet_transactions#validate_balance'
   resources :wallet_transactions
+  resources :images
   resources :friends do
     member do
       get 'send_request'
       get 'cancel_request'
+      get 'confirm_request'
+      get 'reject_request'
+      get 'friend_list'
     end
   end
   resources :profile do 
