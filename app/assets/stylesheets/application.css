@@ -14,5 +14,6 @@
  *= require alertify
  *= require alertify/default
  *= require alertify/bootstrap
+ *= require croppie
  *= require_self
  */

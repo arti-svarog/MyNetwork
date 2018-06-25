@@ -70,3 +70,5 @@ gem 'jquery-validation-rails'
 #Alert Message
 gem 'alertifyjs-rails'
 gem "nested_form"
+
+gem 'croppie_rails'

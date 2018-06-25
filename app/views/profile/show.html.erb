@@ -1,44 +1,83 @@
 <div class="container">
   <div class="timeline">
+    <div class="timeline-coverimg">
+      <div class="caption">
+        <div class="blurs"></div>
+        <div class="caption-text">
+          <div class="fileUpload btn btn-blk">
+            <span><i class="ion-ios-camera"></i> Update Cover Photo</span>
+            <input type="file" class="upload" />
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="timeline-cover">
-      <!--Timeline Menu for Large Screens-->
       <div class="timeline-nav-bar hidden-sm hidden-xs">
         <div class="row">
           <div class="col-md-3">
-
-
-
-            <!-- <div class="profile-info"> -->
-              <%# if @user.image.present? %>
-                <%#= image_tag(@user.image.url )%>
-              <%# else %>
-                <!-- <img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" /> -->
-              <%# end %>
-              <!-- <h3><%#= @user.try(:firstname) %> <%#= @user.try(:lastname) %></h3> -->
-              <!-- <p class="text-muted"><%#= @user.try(:position) %></p> -->
-            <!-- </div> -->
-
             <div class="profile-info">
-                    <div class="new-profile">
-                      <img src="/assets/rkumar.png" alt="" class="img-responsive profile-photo" />
-                      <div class="caption">
-                        <div class="blur"></div>
-                            <div class="caption-text">
-                                <div class="fileUpload btn btn-primary">
-                                    <span>Upload</span>
-                                    <input type="file" class="upload" />
-                                </div>
-                            </div>
-                      </div>
+              <div class="new-profile">
+                <img src="/assets/rkumar.png" alt="" class="img-responsive profile-photo" />
+                <div class="caption">
+                  <div class="blur"></div>
+                  <div class="caption-text">
+                    <button class="btn btn-primary update-pro-pic" data-toggle="modal" data-target="#updateprofilepic">Update Profile Picture</button>
                   </div>
-                  <h3>Sarah Cruiz</h3>
-                  <p class="text-muted">Creative Director</p>
                 </div>
+              </div>
+              <h3>Sarah Cruiz</h3>
+              <p class="text-muted">Creative Director</p>
+            </div>
+            <!--  Update Profile Pic  -->
+            <div id="updateprofilepic" class="modal profile-up" role="dialog">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Update Profile Picture</h4>
+                    <button type="button" class="close" data-dismiss="modal">
+                      <i class="ion-android-close"></i>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="uploadpic-main">
+                      <!-- cropping -->
+                      <%#= render template: '/profile/image_cropping' %>
+                      <!-- end -->
+                      <label for="avatar">Profile picture:</label>
+                      <input type="file"
+                         id="avatar" name="avatar"
+                         accept="image/png, image/jpeg" />
 
 
 
 
 
+                         <!-- Trigger the modal with a button -->
+<!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" id="aa" data-target="#myModal">Open Modal</button> -->
+
+
+
+
+
+                      <div class="allprofileimg" id="ddd" style="display:none;" >
+                        <img id="blah" src="#" alt="your image" />
+                      </div>
+                      <div class="allprofileimg">
+                        <h5 class="grey m-tb-5">Your Photos</h5>
+                        <div class="cropped view-profile">
+
+                        </div>
+                        <div class="view-profile">
+                          <a href="#">
+                            <img src="/assets/2.jpg" class="scaledImageFitWidth"/>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="col-md-9">
             <ul class="list-inline profile-menu ">
@@ -64,7 +103,6 @@
           </div>
         </div>
       </div>
-
       <!--Timeline Menu for Small Screens-->
       <div class="navbar-mobile hidden-lg hidden-md">
         <div class="profile-info">
@@ -81,11 +119,10 @@
           </ul>
           <button class="btn-primary">Add Friend</button>
         </div>
-      </div><!--Timeline Menu for Small Screens End-->
       </div>
-    
+      <!--Timeline Menu for Small Screens End-->
+    </div>
     <div id="page-contents">
-      <%#= p"#{request.url.split("=")[1].split("&")[0].inspect}"%>
       <% if request.url.split("=")[2].present? %>
         <%= render template: "profile/#{request.url.split("=")[2]}"  %>
       <% elsif request.url.split("=")[1].present? %>
@@ -93,136 +130,141 @@
       <% else %>
         <%= render template: "profile/timeline"  %>
       <% end %>
+    </div>
+  </div>
+</div>
 
-      
-      
-  
 
-      
+<!-- Modal -->
+<div id="myModal12" class="modal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        
+        <div class="imageBox">
+          <div class="thumbBox"></div>
+          <div class="spinner" style="display: none">Loading...</div>
+
+          <!-- <img id="blah" src="http://i.imgur.com/zAyt4lX.jpg" alt="your image" height="100" /> -->
+        </div>
+        <div class="cropped view-profile">
+            <img id="blah" src="http://i.imgur.com/zAyt4lX.jpg" alt="your image" height="100" />
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
     </div>
 
   </div>
 </div>
+
 <script type="text/javascript">
-  $(document).ready(function(){
-    let url = new URLSearchParams(window.location.search);
-    // path = url.split("?")
-    var id = url.get('type');
-    // );
-      $("#"+id).addClass('active');
-      $("#"+id).parent().siblings().children().removeClass('active');
-    $(".friends_menu a").click(function()
-    {
-      window.location = "?type="+this.id;
-    });
+$(document).ready(function(){
+  let url = new URLSearchParams(window.location.search);
+  var id = url.get('type');
+  $("#"+id).addClass('active');
+  $("#"+id).parent().siblings().children().removeClass('active');
+  $(".friends_menu a").click(function(){
+    window.location = "?type="+this.id;
   });
-
-</script>
-
-
-<script type="text/javascript">
-  $(document).ready(function(){
-    $(".create_post").on('keyup', function (e) {
-      if (e.keyCode == 13) {
-        // alert(this.id);
-        $.ajax({
-          type: "get",
-          url: "/post",
-          data:{ post_id: this.id,comment: this.value},
-          dataType: "script",
-          complete: function () { 
-            $('.create_post').val('');
-          }
-        });
-      }
-    });
-
-    // Like on Post
-    $(".like").click(function(){
-      var id = this.id;
-      var count1 = $("#"+this.id).text();
-      var count = parseInt(count1)+1
+  $(".create_post").on('keyup', function (e) {
+    if (e.keyCode == 13) {
       $.ajax({
         type: "get",
-        url: "/likes",
-        data:{ post_id: this.id},
-        dataType: "json",
-        success:function(data){
-          {
-            console.log(data.status);
-            $("#like_"+id).text(data.count);
-            if (data.status == true)
-            {
-              $('#'+id).addClass('text-green');
-            }
-            else
-            {
-              $('#'+id).removeClass('text-green');
-            }
-          }
+        url: "/post",
+        data:{ post_id: this.id,comment: this.value},
+        dataType: "script",
+        complete: function () { 
+          $('.create_post').val('');
         }
       });
-    });
-    //End
-    // DisLike on Post
-    $(".dislike").click(function(){
-      var id = this.id;
-      var count1 = $("#"+this.id).text();
-      var count = parseInt(count1)+1
-      $.ajax({
-        type: "get",
-        url: "/downvote",
-        data:{ post_id: this.id},
-        dataType: "json",
-        success:function(data){
-          {
-            
-            $("#post"+id).text(data.count);
-            if (data.status == true)
-            {
-              console.log(data.status+"hello"+data.count+"id"+id);
-              $('#'+id).addClass('text-red');
-            }
-            else
-            {
-              $('#'+id).removeClass('text-red');
-            }
-          }
-        }
-      });
-    });
-    //End
-
-    // #Start Search Friend functionality
-      $("#find_friend").keyup(function(){
-        $(".search-ftr").show();
-       var search = this.value;
-        $.ajax({
-        type: "get",
-        url: "/friends",
-        data:{ search: search},
-        dataType: "json",
-        success:function(data){
+    }
+  });
+  // Like on Post
+  $(".like").click(function(){
+    var id = this.id;
+    var count1 = $("#"+this.id).text();
+    var count = parseInt(count1)+1
+    $.ajax({
+      type: "get",
+      url: "/likes",
+      data:{ post_id: this.id},
+      dataType: "json",
+      success:function(data){
+        console.log(data.status);
+        $("#like_"+id).text(data.count);
+        if (data.status == true)
         {
-          var html = "";
-           $.each(data.users,function(i, value ) {
-            console.log(value);
-             // html += "<a value="+value.id+">"+value.branch_name+"</a>"
-             html += "<a href="+"/profile/"+value.id+"><i class='fa fa-search'></i>"+value.firstname+"</a>"
-           });           
-           $("#friend_search").html(html);
-        }                   
+          $('#'+id).addClass('text-green');
+        }
+        else
+        {
+          $('#'+id).removeClass('text-green');
+        }
       }
-      });
     });
-    //End
   });
+  //End
+  // DisLike on Post
+  $(".dislike").click(function(){
+    var id = this.id;
+    var count1 = $("#"+this.id).text();
+    var count = parseInt(count1)+1
+    $.ajax({
+      type: "get",
+      url: "/downvote",
+      data:{ post_id: this.id},
+      dataType: "json",
+      success:function(data){
+        $("#post"+id).text(data.count);
+        if (data.status == true)
+        {
+          $('#'+id).addClass('text-red');
+        }
+        else
+        {
+          $('#'+id).removeClass('text-red');
+        }
+      }
+    });
+  });
+  //End
+  // #Start Search Friend functionality
+  $("#find_friend").keyup(function(){
+    $(".search-ftr").show();
+    var search = this.value;
+    $.ajax({
+      type: "get",
+      url: "/friends",
+      data:{ search: search},
+      dataType: "json",
+      success:function(data){
+        var html = "";
+        $.each(data.users,function(i, value ) {
+        console.log(value);
+         // html += "<a value="+value.id+">"+value.branch_name+"</a>"
+         html += "<a href="+"/profile/"+value.id+"><i class='fa fa-search'></i>"+value.firstname+"</a>"
+        });           
+        $("#friend_search").html(html);
+      }                   
+    });
+  });
+  //End
+
+  
+});
 </script>
+
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $('.upload').on('submit',(function(e) {
-      alert("sss");
-    });
+    alert('jjj');
   });
 </script>

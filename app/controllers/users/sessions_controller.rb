@@ -13,7 +13,8 @@ class Users::SessionsController < Devise::SessionsController
   def create
     user = User.find_by(email: params[:user][:email])
     user.valid_password?(params[:user][:password])
-    flash[:success] = "Please complete your payment process."
+    flash[:success] = "Please complete your payment process." if (user.payment_status != "success")
+    flash[:success] = "Login successfully." if (user.payment_status == "success")
     if (user.payment_status != "success")
      redirect_to payement_url(current_user)
     else

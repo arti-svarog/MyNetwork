@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 	helper_method :total_friend
 
 	def authenticate_user
-		if !(current_user.payment_status == "success")
+		unless (current_user.payment_status == "success")
     		flash[:success] = "Please complete your payment process."
     		redirect_to payement_url(current_user)
     	end

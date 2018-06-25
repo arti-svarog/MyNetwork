@@ -39,7 +39,7 @@
               </li>
              
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="img-user"><img src="/assets/rkumar.png"/></span> Sujit<span style="margin:0 0 0 3px;"> <img src="/assets/down-arrow.png" alt="" /></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="img-user"><img src="/assets/rkumar.png"/></span> <%= current_user.firstname.camelize %><span style="margin:0 0 0 3px;"> <img src="/assets/down-arrow.png" alt="" /></span></a>
                 <ul class="dropdown-menu users-login">
                   <li><a href="/profile/<%= current_user.id %>"><i class="ion-android-person dark-blue"></i> My Profile</a></li>
                   <li><a href="#"><i class="ion-compose pink-color"></i> Edit</a></li>

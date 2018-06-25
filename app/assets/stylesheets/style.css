@@ -1486,15 +1486,75 @@ ul.online-users li span.online-dot{
 /*==================================================
   Timeline
   ==================================================*/
-
-.timeline-cover{
-  background: url("http://placehold.it/1030x360") no-repeat;
+.timeline-coverimg{
+      background: url("/assets/100.png") no-repeat;
   background-position: center;
   background-size: cover;
   min-height: 360px;
   border-radius: 0 0 4px 4px;
   position: relative;
 }
+
+
+.timeline-coverimg .caption{cursor: pointer;
+position: absolute;
+opacity: 0;
+top:150px;
+right:100px;
+-webkit-transition: all 0.20s ease-in-out;
+-moz-transition: all 0.20s ease-in-out;
+-o-transition: all 0.20s ease-in-out;
+-ms-transition: all 0.20s ease-in-out;
+transition: all 0.20s ease-in-out;
+z-index:9999;
+}
+.timeline-coverimg .blur{
+height: 105px;
+width: 200px;
+z-index: 5;
+position: absolute;
+border-radius: 0 0 100px 100px;}
+.timeline-coverimg .caption-text{color: #fff; position: absolute; width: 200px; height: auto;  text-align: center;  top: 20px; right: 0;}
+.timeline-coverimg:hover .caption {opacity: 1;  transform: translateY(-100px);   -webkit-transform: translateY(-100px);  -moz-transform: translateY(-100px);  -ms-transform: translateY(-100px);
+    -o-transform: translateY(-100px);}
+.timeline-coverimg .fileUpload {position: relative;  overflow: hidden; margin: 10px;}
+.timeline-coverimg .fileUpload input.upload {position: absolute;  top: 0;  right: 0;  margin: 0;  padding: 0;  font-size: 20px;  cursor: pointer;  opacity: 0;  filter: alpha(opacity=0);}
+.btn-blk{background:rgba(0,0,0,0.5); border:1px solid; border-color:rgba(255,255,255,0.5);}
+.btn-blk:hover{color:#fff;}
+.m-tb-5{margin:5px 0!important;}
+
+
+
+.timeline-cover{
+  position: relative;
+}
+.profile-info .new-profile{position: relative;}
+.profile-info .caption{cursor: pointer;
+position: absolute;
+opacity: 0;
+bottom:0;
+-webkit-transition: all 0.20s ease-in-out;
+-moz-transition: all 0.20s ease-in-out;
+-o-transition: all 0.20s ease-in-out;
+-ms-transition: all 0.20s ease-in-out;
+transition: all 0.20s ease-in-out;
+}
+.profile-info .blur{
+background-color: rgba(0,0,0,0.5);
+height: 105px;
+width: 200px;
+z-index: 5;
+position: absolute;
+border-radius: 0 0 100px 100px;}
+.profile-info .caption-text{z-index: 10; color: #fff; position: absolute; width: 200px;
+    height: auto;  text-align: center;  top: 20px;  left: 0;  right: 0;}
+.profile-info:hover .caption {opacity: 1;  transform: translateY(-100px);   -webkit-transform: translateY(-100px);  -moz-transform: translateY(-100px);  -ms-transform: translateY(-100px);
+    -o-transform: translateY(-100px);}
+.fileUpload {margin: 10px;}
+.fileUpload input.upload {position: absolute;  top: 0;  right: 0;  margin: 0;  padding: 0; font-size: 20px;  cursor: pointer;  opacity: 0;  filter: alpha(opacity=0);}
+.fileUploads {position: relative;  overflow: hidden; margin: 10px;}
+.fileUploads input.uploads {position: absolute;  top: 0;  right: 0;  margin: 0;  padding: 0;
+    font-size: 20px;  cursor: pointer;  opacity: 0;  filter: alpha(opacity=0);}
 
 /*Timeline Menu for Large Screens*/
 
@@ -1606,36 +1666,42 @@ ul.online-users li span.online-dot{
   color: #27aae1;
 }
 
+.update-pro-pic{border-radius: 5px; padding:10px 8px; font-size: 13px;}
+.uploadbtn-s{width: 200px; background: #f6f7f9!important; height: 67px; line-height: 50px; font-size: 16px; font-weight: 600; border: 1px solid #f0f0f0; position:relative;}
+.uploadbtn-s:hover{background: #f6f7f9; color:#27aae1;}
+.btn:focus{outline:0!important;}
 
-/*==================================================
-  Timeline Sidebar Right
-  ==================================================*/
+.view-profile{width: 100px; height: 100px; overflow: hidden; display: inline-block; margin: 5px;
+vertical-align: top;}
+.scaledImageFitWidth {height: auto;  min-height: initial;  width: 100%;}
+.profile-up .modal-header{background: #f6f7f9; padding: 5px 15px;}
+.profile-up .modal-header h4{display:inline-block; vertical-align:middle; color: #6d6e71; font-size:18px;}
+.profile-up .modal-header button{float:right; line-height:30px;}
+.uploadbtn-sec {border-bottom: 1px solid #ececec; padding: 0 0 5px 0; margin: 0 0 10px 0;}
 
-.feed-item{
-  text-align: left;
-  margin-bottom: 13px;
-  padding: 0 20px;
-  position: relative;
-}
 
-.feed-item::before{
-  border-left: 2px solid #8dc63f;
-  position: absolute;
-  height: 30px;
-  content: "";
-  left: 0;
-  top: 5px;
-}
 
-.feed-item img.profile-photo-sm{
-  float: left;
-  margin-right: 10px;
-}
+      .cropit-preview {
+        background-color: #f8f8f8;
+        background-size: cover;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        margin-top: 7px;
+        width: 250px;
+        height: 250px;
+      }
 
-.feed-item .live-activity{
-  border-bottom: 1px solid #f1f2f2;
-}
+      .cropit-preview-image-container {
+        cursor: move;
+      }
 
+      .image-size-label {
+        margin-top: 10px;
+      }
+
+      input, .export {
+        display: block;
+      }
 
 /*==================================================
  Post Date
@@ -1677,6 +1743,7 @@ ul.online-users li span.online-dot{
 .timeline .post-content img.post-image{
   border-radius: 4px 4px 0 0;
 }
+
 
 
 /*==================================================
@@ -2754,3 +2821,18 @@ border-radius: 0 0 100px 100px;}
 .fileUpload {position: relative;  overflow: hidden; margin: 10px;}
 .fileUpload input.upload {position: absolute;  top: 0;  right: 0;  margin: 0;  padding: 0;
     font-size: 20px;  cursor: pointer;  opacity: 0;  filter: alpha(opacity=0);}
+
+/*-----------     Crop image        -------------*/
+      
+.imageBox{position: relative; height: 400px;  width: 400px;  border:1px solid #aaa;  background: #fff;
+    overflow: hidden; background-repeat: no-repeat; cursor:move;}
+.imageBox .thumbBox{position: absolute; top: 50%; left: 50%; width: 200px; height: 200px;
+    margin-top: -100px; margin-left: -100px; border: 1px solid rgb(102, 102, 102);
+    box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5); background: none repeat scroll 0% 0% transparent;}
+.imageBox .spinner{position: absolute; top: 0; left: 0; bottom: 0; right: 0; text-align: center;
+    line-height: 400px; background: rgba(0,0,0,0.7);}
+.copmain{position:relative; height: 500px;}
+.cropimg-s{position: absolute; top: 10%; left: 15%; right: 0; bottom: 0;}
+.action{width: 400px; height: 30px; margin: 10px 0;}
+.cropped>img{margin-right: 10px;}
+    

@@ -1,5 +1,7 @@
 {
   "name": "mynetwork",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "croppie": "^2.6.2"
+  }
 }
